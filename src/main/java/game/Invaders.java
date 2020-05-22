@@ -33,8 +33,8 @@ public class Invaders extends Stage implements KeyListener {
 	private InputHandler keyPressedHandler;
 	private InputHandler keyReleasedHandler;
 
-	public long usedTime;//time taken per game step
-	public BufferStrategy strategy;	 //double buffering strategy
+	private long usedTime;//time taken per game step
+	private BufferStrategy strategy;	 //double buffering strategy
 
 	private BufferedImage background, backgroundTile; //background cache
 	private int backgroundY; //background cache position
@@ -80,7 +80,7 @@ public class Invaders extends Stage implements KeyListener {
 	/**
 	 * add a grid of invaders based on the screen size
 	 */
-	public void addInvaders() {
+	private void addInvaders() {
 		Invader invader = new Invader(this);
 		//padding between units/rows
 		int xPad = invader.getWidth() + 15;
@@ -138,7 +138,7 @@ public class Invaders extends Stage implements KeyListener {
 		game();
 	}
 
-	public void paintWorld() {
+	private void paintWorld() {
 
 		//get the graphics from the buffer
 		Graphics g = strategy.getDrawGraphics();
@@ -160,7 +160,7 @@ public class Invaders extends Stage implements KeyListener {
 		strategy.show();
 	}
 
-	public void paintGameOver() {
+	private void paintGameOver() {
 		Graphics g = strategy.getDrawGraphics();
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
@@ -180,7 +180,7 @@ public class Invaders extends Stage implements KeyListener {
 		strategy.show();
 	}
 
-	public void paintGameWon() {
+	private void paintGameWon() {
 		Graphics g = strategy.getDrawGraphics();
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
@@ -200,7 +200,7 @@ public class Invaders extends Stage implements KeyListener {
 		strategy.show();
 	}
 
-	public void paintScore(Graphics g) {
+	private void paintScore(Graphics g) {
 		g.setFont(new Font("Arial",Font.BOLD,20));
 		g.setColor(Color.green);
 		g.drawString("Score: ",20,20);
@@ -210,7 +210,7 @@ public class Invaders extends Stage implements KeyListener {
 
 	public void paint(Graphics g) {}
 
-	public void updateWorld() {
+	private void updateWorld() {
 
 	    int i = 0;
 		int numInvaders = 0;
@@ -322,7 +322,7 @@ public class Invaders extends Stage implements KeyListener {
 
 		InputHandler inputHandler = new InputHandler(this, player);
 		inputHandler.event = e;
-		inputHandler.action = InputHandler.Action.RELSEASE;
+		inputHandler.action = InputHandler.Action.RELEASE;
 		// starting listening for input
 		inputHandler.start();
 		//keyReleasedHandler.handleInput(e);

@@ -10,10 +10,10 @@ public class Ufo extends Actor {
 		super(stage);		
 		sprites = new String[]{"ufo0.gif","ufo1.gif","ufo2.gif","ufo3.gif","ufo4.gif"};
 		frameSpeed = 100;
-		width = 30;
-		height = 17;
-		posX = Stage.WIDTH/2;
-		posY = Stage.HEIGHT/2;
+		setWidth(30);
+		setHeight(17);
+		setX(Stage.WIDTH/2);
+		setY(Stage.HEIGHT/2);
 		setVx(1);
 		setVy(0);
 	}
@@ -25,8 +25,8 @@ public class Ufo extends Actor {
 	}
 		
 	private void updateXSpeed() {
-		posX += getVx();
-		if (posX > stage.getWidth()) setMarkedForRemoval(true);		
+		setX(getX() + getVx());
+		if (getX() > stage.getWidth()) setMarkedForRemoval(true);
 	}
 	
 	private void updateYSpeed() {

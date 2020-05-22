@@ -9,19 +9,19 @@ public class Shot extends Actor {
 	
 	public Shot(Stage stage) {
 		super(stage);
-		width = 10;
-		height = 15;
+		setWidth(10);
+		setHeight(15);
 		sprites = new String[]{"shot1.gif","shot2.gif"};
 	}
 
 	public void act() {
 		super.act();
 		if (up)
-			posY -= bulletSpeed;
+			setY(getY() - bulletSpeed);
 		else
-			posY += bulletSpeed;
+			setY(getY() + bulletSpeed);
 		
-		if (posY < 0)
+		if (getY() < 0)
 			setMarkedForRemoval(true);
 	}
 	

@@ -33,12 +33,12 @@ public class InputHandler extends Thread {
 			else
 				player.keyPressed(event);
 		}
-		else if (action == Action.RELSEASE)
+		else if (action == Action.RELEASE)
 			player.keyReleased(event);
 	}
 
 	public enum Action {
 		PRESS,
-		RELSEASE
+		RELEASE
 	}
 }

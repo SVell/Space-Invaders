@@ -9,19 +9,19 @@ import java.awt.Rectangle;
 public class Actor {
 
 	private static final int POINT_VALUE = 0;
-	protected int vx; 
-	protected int vy;
-	protected int posX;
-	protected int posY;
-	protected int height;
-	protected int width;
+	private int vx;
+	private int vy;
+	private int posX;
+	private int posY;
+	private int height;
+	private int width;
 	protected int frame;
 	protected int frameSpeed;
 	protected int actorSpeed;
 	protected int time;
 	private boolean markedForRemoval = false;
-	protected String[] sprites = null; 
-	protected Stage stage = null;
+	protected String[] sprites;
+	protected Stage stage;
 
 	public Actor(Stage canvas) {
 		this.stage = canvas;

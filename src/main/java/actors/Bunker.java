@@ -35,7 +35,7 @@ public class Bunker extends Actor {
 	}
 	
 	public void paint(Graphics g) {		
-		g.drawImage(getSprite(), posX, posY, stage);
+		g.drawImage(getSprite(), getX(), getY(), stage);
 	}
 
 	public void collision(Actor a) {		
