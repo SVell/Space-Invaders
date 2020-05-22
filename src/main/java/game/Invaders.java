@@ -28,7 +28,7 @@ import actors.Ufo;
 public class Invaders extends Stage implements KeyListener {
 
 	private static final long serialVersionUID = 1L;
-
+	private JFrame gameFrame;
 	private Player player;
 	private InputHandler keyPressedHandler;
 	private InputHandler keyReleasedHandler;
@@ -50,17 +50,17 @@ public class Invaders extends Stage implements KeyListener {
 
 		panel.add(this);
 
-		JFrame frame = new JFrame("Invaders");
-		frame.add(panel);
+		gameFrame = new JFrame("Invaders");
+		gameFrame.add(panel);
 
-		frame.setBounds(0,0,Stage.WIDTH,Stage.HEIGHT);
-		frame.setResizable(false);
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		gameFrame.setBounds(0,0,Stage.WIDTH,Stage.HEIGHT);
+		gameFrame.setResizable(false);
+		gameFrame.setVisible(true);
+		gameFrame.setLocationRelativeTo(null);
+		gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 		//cleanup resources on exit
-		frame.addWindowListener( new WindowAdapter() {
+		gameFrame.addWindowListener( new WindowAdapter() {
 			          public void windowClosing(WindowEvent e) {
 			        	ResourceLoader.getInstance().cleanup();
 			            System.exit(0);
@@ -75,11 +75,6 @@ public class Invaders extends Stage implements KeyListener {
 		strategy = getBufferStrategy();
 		requestFocus();
 		initWorld();
-
-		keyPressedHandler = new InputHandler(this, player);
-		keyPressedHandler.action = InputHandler.Action.PRESS;
-		keyReleasedHandler = new InputHandler(this, player);
-		keyReleasedHandler.action = InputHandler.Action.RELSEASE;
 	}
 
 	/**
@@ -109,6 +104,7 @@ public class Invaders extends Stage implements KeyListener {
 		}
 	}
 
+
 	public void initWorld() {
 		actors = new ArrayList<Actor>();
 		gameOver = false;
@@ -129,7 +125,17 @@ public class Invaders extends Stage implements KeyListener {
 		g.fillRect(0,0,background.getWidth(),background.getHeight());
 		backgroundY = backgroundTile.getHeight();
 
+
+		/*keyPressedHandler = new InputHandler(this, player);
+		keyPressedHandler.action = InputHandler.Action.PRESS;
+		keyReleasedHandler = new InputHandler(this, player);
+		keyReleasedHandler.action = InputHandler.Action.RELEASE;*/
 		addInvaders();
+	}
+
+	public void resetGame(){
+		initWorld();
+		game();
 	}
 
 	public void paintWorld() {
@@ -150,7 +156,6 @@ public class Invaders extends Stage implements KeyListener {
 
 		player.paint(g);
 		paintScore(g);
-		paintFPS(g);
 		//swap buffer
 		strategy.show();
 	}
@@ -193,14 +198,6 @@ public class Invaders extends Stage implements KeyListener {
 		g.drawString("ENTER: try again",(xPos < 0 ? 0 : xPos),getHeight()/2 + 50);
 
 		strategy.show();
-	}
-
-	public void paintFPS(Graphics g) {
-		g.setColor(Color.RED);
-		if (usedTime > 0)
-			g.drawString(String.valueOf(1000/usedTime)+" fps",0,Stage.HEIGHT-50);
-		else
-			g.drawString("--- fps",0,Stage.HEIGHT-50);
 	}
 
 	public void paintScore(Graphics g) {
@@ -311,11 +308,24 @@ public class Invaders extends Stage implements KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		keyPressedHandler.handleInput(e);
+		
+		InputHandler inputHandler = new InputHandler(this, player);
+		inputHandler.event = e;
+		inputHandler.action = InputHandler.Action.PRESS;
+		inputHandler.start();
+		//keyPressedHandler.handleInput(e);
+
 	}
 
 	public void keyReleased(KeyEvent e) {
-		keyReleasedHandler.handleInput(e);
+
+
+		InputHandler inputHandler = new InputHandler(this, player);
+		inputHandler.event = e;
+		inputHandler.action = InputHandler.Action.RELSEASE;
+		// starting listening for input
+		inputHandler.start();
+		//keyReleasedHandler.handleInput(e);
 	}
 
 	public void keyTyped(KeyEvent e) {

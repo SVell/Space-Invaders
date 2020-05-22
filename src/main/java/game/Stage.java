@@ -1,7 +1,6 @@
 package game;
 
-import java.awt.Canvas;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
