@@ -7,6 +7,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1cDX3tIuQfwLFhAUEScezAha6d6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -15,6 +18,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -83,21 +87,29 @@
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
     <state x="775" y="194" key="#com.intellij.ide.macro.MacrosDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590064042803" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1590064377098">
-      <screen x="0" y="46" width="1920" height="1034" />
+    <state x="803" y="445" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1590144547234">
+      <screen x="0" y="30" width="1920" height="1050" />
     </state>
+    <state x="803" y="445" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590144547234" />
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom" timestamp="1590144588777">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590144588777" />
     <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.46.1920.1034@0.46.1920.1034" timestamp="1590064377098" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1590064377098">
-      <screen x="0" y="46" width="1920" height="1034" />
+    <state width="1877" height="264" key="GridCell.Tab.0.center" timestamp="1590144588776">
+      <screen x="0" y="30" width="1920" height="1050" />
     </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590144588776" />
     <state width="1877" height="280" key="GridCell.Tab.0.center/0.46.1920.1034@0.46.1920.1034" timestamp="1590064377098" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1590064377098">
-      <screen x="0" y="46" width="1920" height="1034" />
+    <state width="1877" height="264" key="GridCell.Tab.0.left" timestamp="1590144588776">
+      <screen x="0" y="30" width="1920" height="1050" />
     </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590144588776" />
     <state width="1877" height="280" key="GridCell.Tab.0.left/0.46.1920.1034@0.46.1920.1034" timestamp="1590064377098" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1590064377098">
-      <screen x="0" y="46" width="1920" height="1034" />
+    <state width="1877" height="264" key="GridCell.Tab.0.right" timestamp="1590144588776">
+      <screen x="0" y="30" width="1920" height="1050" />
     </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590144588776" />
     <state width="1877" height="280" key="GridCell.Tab.0.right/0.46.1920.1034@0.46.1920.1034" timestamp="1590064377098" />
   </component>
 </project>

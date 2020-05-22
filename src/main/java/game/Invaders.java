@@ -150,7 +150,6 @@ public class Invaders extends Stage implements KeyListener {
 
 		player.paint(g);
 		paintScore(g);
-		paintFPS(g);
 		//swap buffer
 		strategy.show();
 	}
@@ -193,14 +192,6 @@ public class Invaders extends Stage implements KeyListener {
 		g.drawString("ENTER: try again",(xPos < 0 ? 0 : xPos),getHeight()/2 + 50);
 
 		strategy.show();
-	}
-
-	public void paintFPS(Graphics g) {
-		g.setColor(Color.RED);
-		if (usedTime > 0)
-			g.drawString(String.valueOf(1000/usedTime)+" fps",0,Stage.HEIGHT-50);
-		else
-			g.drawString("--- fps",0,Stage.HEIGHT-50);
 	}
 
 	public void paintScore(Graphics g) {
