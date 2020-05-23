@@ -2,8 +2,8 @@ package actors;
 
 import game.ResourceLoader;
 import game.Stage;
-import java.awt.Graphics;
-import java.awt.Rectangle;
+
+import java.awt.*;
 
 
 public class Actor {
@@ -32,10 +32,6 @@ public class Actor {
 	}
 	
 	public void act() {
-		updateFrame();
-	}
-	
-	protected void updateFrame() {
 		time++;
 		if (time % frameSpeed == 0) {
 			time = 0;
@@ -102,6 +98,11 @@ public class Actor {
 
 	public int getVy() {
 		return vy;
+	}
+
+	public void move(Point vector){
+		posX += vector.x;
+		posY += vector.y;
 	}
 
 	public Rectangle getBounds() {
