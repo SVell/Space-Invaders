@@ -12,6 +12,7 @@ public class InvaderShot extends Shot {
 		bulletSpeed = 1;
 	}
 
+	@Override
 	public void collision(Actor a) {
 		if (a instanceof Invader)
 			return;

@@ -1,17 +1,14 @@
 package game;
 
+import javax.imageio.ImageIO;
 import java.applet.Applet;
 import java.applet.AudioClip;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.Transparency;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import javax.imageio.ImageIO;
 
 public class ResourceLoader implements ImageObserver {
 
@@ -27,13 +24,14 @@ public class ResourceLoader implements ImageObserver {
 	public static ResourceLoader getInstance() {
 		return instance;
 	}
-	
+
 	public void cleanup() {
 		for (AudioClip sound : sounds.values()) {
 			sound.stop();
 		}
 		
 	}
+
 	public AudioClip getSound(String name) {
 		AudioClip sound = sounds.get(name);
 		if (null != sound)
@@ -49,7 +47,7 @@ public class ResourceLoader implements ImageObserver {
 		
 		return sound;
 	}
-	
+
 	/**
 	 * creates a compatible image in memory, faster than using the original image format
 	 * @param width image width
@@ -84,7 +82,8 @@ public class ResourceLoader implements ImageObserver {
 		
 		return image;
 	}
-	
+
+	@Override
 	public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
 		return (infoflags & (ALLBITS|ABORT)) == 0;
 	}

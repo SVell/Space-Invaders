@@ -25,13 +25,14 @@ public class Player extends Actor {
 		setY(Stage.HEIGHT/2);
 	}
 
+	@Override
 	public void act() {
 		super.act();		
 	}
-	
+
 	protected void updateSpeed() {
-		setVx(0);
-		setVy(0);
+		//setVx(0);
+		//setVy(0);
 		if (down)
 			setVy(actorSpeed);
 		if (up)
@@ -96,6 +97,7 @@ public class Player extends Actor {
 		updateSpeed();
 	}
 
+	@Override
 	public void collision(Actor a) {
 		if(a instanceof InvaderShot || a instanceof Enemy)
 			stage.endGame();

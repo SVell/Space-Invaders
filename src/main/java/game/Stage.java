@@ -1,11 +1,11 @@
 package game;
 
+import actors.Actor;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
-
-import actors.Actor;
 
 public class Stage extends Canvas implements ImageObserver {
 
@@ -20,7 +20,7 @@ public class Stage extends Canvas implements ImageObserver {
 	
 	public Stage() {
 	}
-	
+
 	public void endGame() {
 		gameOver = true;
 	}
@@ -28,7 +28,8 @@ public class Stage extends Canvas implements ImageObserver {
 	public boolean isGameOver() {
 		return gameOver;
 	}
-	
+
+	@Override
 	public boolean imageUpdate(Image img, int infoflags, int x, int y,
 			int width, int height) {
 		return false;

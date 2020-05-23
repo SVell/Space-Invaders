@@ -298,6 +298,7 @@ public class Invaders extends Stage implements KeyListener {
 		}
 	}
 
+	@Override
 	public void keyPressed(KeyEvent e) {
 		
 		InputHandler inputHandler = new InputHandler(this, player);
@@ -308,9 +309,8 @@ public class Invaders extends Stage implements KeyListener {
 
 	}
 
+	@Override
 	public void keyReleased(KeyEvent e) {
-
-
 		InputHandler inputHandler = new InputHandler(this, player);
 		inputHandler.event = e;
 		inputHandler.action = InputHandler.Action.RELEASE;
@@ -319,6 +319,7 @@ public class Invaders extends Stage implements KeyListener {
 		//keyReleasedHandler.handleInput(e);
 	}
 
+	@Override
 	public void keyTyped(KeyEvent e) {
 	}
 

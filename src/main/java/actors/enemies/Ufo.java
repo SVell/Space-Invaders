@@ -19,13 +19,14 @@ public class Ufo extends Enemy {
 		setVx(1);
 		setVy(0);
 	}
-	
+
+	@Override
 	public void act() {
 		super.act();
 		updateXSpeed();
 		updateYSpeed();
 	}
-		
+
 	private void updateXSpeed() {
 		moveX(getVx());
 		if (getX() > stage.getWidth()) setMarkedForRemoval(true);
@@ -33,13 +34,15 @@ public class Ufo extends Enemy {
 	
 	private void updateYSpeed() {
 		
-	}	
-	
+	}
+
+	@Override
 	public void collision(Actor a) {
 		if (a instanceof Shot)
 			setMarkedForRemoval(true);
 	}
-	
+
+	@Override
 	public int getPointValue() {
 		return Ufo.POINT_VALUE;
 	}

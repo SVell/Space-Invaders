@@ -15,6 +15,7 @@ public class Shot extends Actor {
 		sprites = new String[]{"shot1.gif","shot2.gif"};
 	}
 
+	@Override
 	public void act() {
 		super.act();
 		if (up)
@@ -25,7 +26,8 @@ public class Shot extends Actor {
 		if (getY() < 0)
 			setMarkedForRemoval(true);
 	}
-	
+
+	@Override
 	public void collision(Actor a) {		
 		setMarkedForRemoval(true);
 	}

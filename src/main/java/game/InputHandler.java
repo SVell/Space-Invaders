@@ -1,8 +1,8 @@
 package game;
 
-import java.awt.event.KeyEvent;
-
 import actors.Player;
+
+import java.awt.event.KeyEvent;
 
 /**
  * creates a thread to process player input
@@ -21,6 +21,7 @@ public class InputHandler extends Thread {
 		this.player = player;
 	}
 
+	@Override
 	public void run() {
 		if (action == Action.PRESS) {
 			if (KeyEvent.VK_ENTER == event.getKeyCode()) {
