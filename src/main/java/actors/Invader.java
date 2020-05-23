@@ -75,12 +75,14 @@ public class Invader extends Actor {
 	}
 
 	public void collision(Actor a) {
-		if (a instanceof InvaderShot)
+		if (a instanceof InvaderShot) {
 			return;
-		
+		}
+
 		playSound("explosion.wav");
-		if (a instanceof Shot)
+		if (a instanceof Shot || a instanceof Player) {
 			setMarkedForRemoval(true);
+		}
 	}
 	
 	public int getPointValue() {

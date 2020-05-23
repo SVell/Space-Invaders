@@ -1,5 +1,6 @@
 package actors;
 
+//
 import game.Stage;
 import java.awt.event.KeyEvent;
 
@@ -7,6 +8,7 @@ public class Player extends Actor {
 	
 	private boolean up,down,left,right;
 	private int score = 0;
+	private int lives = 3;
 	
 	public Player(Stage stage) {
 		super(stage);
@@ -92,8 +94,18 @@ public class Player extends Actor {
 		updateSpeed();
 	}
 
-	public void collision(Actor a) {		
-		stage.endGame();
+	public int getLives(){
+		return this.lives;
+	}
+
+	public void setLives(int lifes){
+		this.lives = lifes;
+	}
+
+	public void collision(Actor a) {
+		this.lives--;
+		if(lives == 0) stage.endGame();
+
 	}
 
 	private void fire() {
