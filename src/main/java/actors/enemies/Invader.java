@@ -1,8 +1,11 @@
-package actors;
+package actors.enemies;
 
+import actors.Actor;
+import actors.projectiles.InvaderShot;
+import actors.projectiles.Shot;
 import game.Stage;
 
-public class Invader extends Actor {
+public class Invader extends Enemy {
 	
 	private static final int POINT_VALUE = 10;
 	protected static final double FIRING_FREQUENCY = 0.01;
@@ -30,7 +33,7 @@ public class Invader extends Actor {
 	}
 	
 	public void fire() {
-		InvaderShot shot = new InvaderShot(stage);			
+		InvaderShot shot = new InvaderShot(stage);
 		shot.setX(getX() + getWidth()/2);
 		shot.setY(getY() + shot.getHeight());
 		stage.actors.add(shot);
@@ -58,7 +61,7 @@ public class Invader extends Actor {
 	
 	private void updateXSpeed() {
 		if (time % actorSpeed == 0) {
-			setX(getVx() + getX());
+			moveX(getVx());
 			if (getX() < leftWall || getX() > rightWall) setVx(-getVx());
 		}
 	}
@@ -66,7 +69,7 @@ public class Invader extends Actor {
 	private void updateYSpeed() {
 		step++;
 		if (step == advanceTime) {
-			setY(getY() + getHeight());
+			moveY(getHeight());
 			step = 0;
 		}	
 

@@ -1,6 +1,10 @@
 package actors;
 
+import actors.enemies.Enemy;
+import actors.projectiles.InvaderShot;
+import actors.projectiles.Shot;
 import game.Stage;
+
 import java.awt.event.KeyEvent;
 
 public class Player extends Actor {
@@ -39,13 +43,13 @@ public class Player extends Actor {
 		
 		//don't allow scrolling off the edge of the screen		
 		if (getX() - getWidth()/2 > 0 && getVx() < 0)
-			setX(getX() + getVx());
+			moveX(getVx());
 		else if (getX() + getWidth()*1.5 < Stage.WIDTH && getVx() > 0)
-			setX(getX() + getVx());
+			moveX(getVx());
 		else if (getY() - getHeight()/2 > 0 && getVy() < 0)
-			setY(getY() + getVy());
+			moveY(getVy());
 		else if (getY() + getHeight()*1.5 < Stage.HEIGHT && getVy() > 0)
-			setY(getY() + getVy());
+			moveY(getVy());
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -92,8 +96,9 @@ public class Player extends Actor {
 		updateSpeed();
 	}
 
-	public void collision(Actor a) {		
-		stage.endGame();
+	public void collision(Actor a) {
+		if(a instanceof InvaderShot || a instanceof Enemy)
+			stage.endGame();
 	}
 
 	private void fire() {

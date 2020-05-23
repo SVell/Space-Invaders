@@ -1,8 +1,10 @@
-package actors;
+package actors.enemies;
 
+import actors.Actor;
+import actors.projectiles.Shot;
 import game.Stage;
 
-public class Ufo extends Actor {
+public class Ufo extends Enemy {
 	
 	private static final int POINT_VALUE = 50;
 	
@@ -25,7 +27,7 @@ public class Ufo extends Actor {
 	}
 		
 	private void updateXSpeed() {
-		setX(getX() + getVx());
+		moveX(getVx());
 		if (getX() > stage.getWidth()) setMarkedForRemoval(true);
 	}
 	

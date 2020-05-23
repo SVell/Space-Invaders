@@ -105,6 +105,18 @@ public class Actor {
 		posY += vector.y;
 	}
 
+	public void move(int x, int y){
+		move(new Point(x, y));
+	}
+
+	public void moveX(int dx){
+		move(new Point(dx, 0));
+	}
+
+	public void moveY(int dy){
+		move(new Point(0, dy));
+	}
+
 	public Rectangle getBounds() {
 		return new Rectangle(posX,posY,width, height);
 	}
