@@ -156,7 +156,7 @@ public class Invaders extends Stage implements KeyListener {
 
 		player.paint(g);
 		paintScore(g);
-		paintLifes(g);
+		paintLives(g);
 		//swap buffer
 		strategy.show();
 	}
@@ -209,10 +209,10 @@ public class Invaders extends Stage implements KeyListener {
 		g.drawString("" + player.getScore(), 100, 20);
 	}
 
-	public void paintLifes(Graphics g){
+	public void paintLives(Graphics g){
 		g.setFont(new Font("Arial",Font.BOLD,20));
 		g.setColor(Color.green);
-		g.drawString("Lifes: ",gameFrame.getWidth()-120,20);
+		g.drawString("Lives: ",gameFrame.getWidth()-120,20);
 		g.setColor(Color.red);
 		g.drawString("" + player.getLives(), gameFrame.getWidth()-50, 20);
 	}
