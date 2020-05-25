@@ -4,6 +4,7 @@ package actors;
 import actors.enemies.Ufo;
 import actors.projectiles.InvaderShot;
 import game.Stage;
+
 import java.awt.event.KeyEvent;
 
 public class Player extends Actor {
@@ -15,7 +16,7 @@ public class Player extends Actor {
 	public Player(Stage stage) {
 		super(stage);
 
-		sprites = new String[]{"player.gif"};
+		sprites = new String[]{"Plane.png"};
 		frame = 0;
 		frameSpeed = 35;
 		actorSpeed = 10;
@@ -28,7 +29,8 @@ public class Player extends Actor {
 	public void act() {
 		super.act();		
 	}
-	
+
+
 	protected void updateSpeed() {
 		vx = 0;
 		vy = 0;

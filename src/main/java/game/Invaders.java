@@ -107,7 +107,7 @@ public class Invaders extends Stage implements KeyListener {
 		player.setVx(10);
 
 		//load cached background
-		backgroundTile = ResourceLoader.getInstance().getSprite("space.gif");
+		backgroundTile = ResourceLoader.getInstance().getSprite("bgNew.png");
 		background = ResourceLoader.createCompatible(
 				WIDTH, HEIGHT + backgroundTile.getHeight(),
 				Transparency.OPAQUE);
@@ -139,7 +139,7 @@ public class Invaders extends Stage implements KeyListener {
 		//load subimage from the background
 		g.drawImage( background,0,0,Stage.WIDTH,Stage.HEIGHT,0,backgroundY,Stage.WIDTH,backgroundY+Stage.HEIGHT,this);
 
-		//paint the actors
+		//paint the actors (Enemies)
 		for (int i = 0; i < actors.size(); i++) {
 			Actor actor = actors.get(i);
 			actor.paint(g);
@@ -262,7 +262,7 @@ public class Invaders extends Stage implements KeyListener {
 
 
 	public void game() {
-		loopSound("music.wav");
+		loopSound("bg.mp3");
 		usedTime= 0;
 		while(isVisible()) {
 			long startTime = System.currentTimeMillis();

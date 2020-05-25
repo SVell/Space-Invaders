@@ -3,6 +3,8 @@ package actors;
 import actors.projectiles.InvaderShot;
 import game.Stage;
 
+import java.util.Random;
+
 public class Invader extends Actor {
 	
 	private static final int POINT_VALUE = 10;
@@ -15,11 +17,26 @@ public class Invader extends Actor {
 	
 	public Invader(Stage stage) {
 		super(stage);
-		
-		if (((int)(Math.random()*10))%2 == 0) 
-			sprites = new String[]{"invader1.gif", "invader2.gif"};
-		else 
-			sprites = new String[]{"invader3.gif", "invader4.gif"};
+		Random random = new Random();
+		int num = random.nextInt(4 - 0) + 0;
+
+		switch (num){
+			case 0:
+				sprites = new String[]{"enemy1.png"};
+				break;
+			case 1:
+				sprites = new String[]{"enemy2.png"};
+				break;
+			case 2:
+				sprites = new String[]{"enemy3.png"};
+				break;
+			case 3:
+				sprites = new String[]{"enemy4.png"};
+				break;
+
+		}
+
+
 		frame = 0;
 		frameSpeed = 50;
 		actorSpeed = 100;
@@ -33,6 +50,7 @@ public class Invader extends Actor {
 		InvaderShot shot = new InvaderShot(stage);
 		shot.setX(posX + width/2);
 		shot.setY(posY + shot.getHeight());
+		shot.sprites = new String[]{"BulletEnemy.png", "BulletEnemy.png"};
 		stage.actors.add(shot);
 	}
 	

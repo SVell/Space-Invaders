@@ -75,7 +75,7 @@ public class ResourceLoader implements ImageObserver {
 			//store a compatible image instead of the original format
 			BufferedImage compatible = createCompatible(image.getWidth(), image.getHeight(), Transparency.BITMASK);
 			compatible.getGraphics().drawImage(image, 0,0,this);
-			images.put(name,compatible);			
+			images.put(name,compatible);
 		} catch (Exception e) {
 			System.err.println("Cound not locate image " + name + ": " + e.getMessage());			
 		}		
