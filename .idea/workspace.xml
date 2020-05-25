@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e01f3a0e-feb8-4c9c-b5d3-838b882b1d2d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Invader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Invader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Shot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Shot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Invaders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/actors/Actor$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/actors/Actor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/actors/Invader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/actors/Shot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Shot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Invaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Invaders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/enemies/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/enemies/Ufo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
