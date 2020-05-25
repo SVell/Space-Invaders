@@ -25,7 +25,9 @@ public class Shot extends Actor {
 			setMarkedForRemoval(true);
 	}
 	
-	public void collision(Actor a) {		
-		setMarkedForRemoval(true);
+	public void collision(Actor a) {
+		if(!(a instanceof Player || a instanceof Shot)) {
+			setMarkedForRemoval(true);
+		}
 	}
 }
