@@ -1,13 +1,13 @@
 package game;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.TexturePaint;
-import java.awt.Transparency;
+import actors.Actor;
+import actors.Player;
+import actors.enemies.Invader;
+import actors.enemies.Ufo;
+import actors.projectiles.Shot;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
@@ -15,15 +15,6 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
-
-import javax.swing.*;
-
-import actors.Actor;
-import actors.Invader;
-import actors.Player;
-import actors.Shot;
-import actors.Ufo;
 
 public class Invaders extends Stage implements KeyListener {
 
@@ -33,8 +24,8 @@ public class Invaders extends Stage implements KeyListener {
 	private InputHandler keyPressedHandler;
 	private InputHandler keyReleasedHandler;
 
-	public long usedTime;//time taken per game step
-	public BufferStrategy strategy;	 //double buffering strategy
+	private long usedTime;//time taken per game step
+	private BufferStrategy strategy;	 //double buffering strategy
 
 	private BufferedImage background, backgroundTile; //background cache
 	private int backgroundY; //background cache position
@@ -80,7 +71,7 @@ public class Invaders extends Stage implements KeyListener {
 	/**
 	 * add a grid of invaders based on the screen size
 	 */
-	public void addInvaders() {
+	private void addInvaders() {
 		Invader invader = new Invader(this);
 		//padding between units/rows
 		int xPad = invader.getWidth() + 15;
@@ -138,7 +129,7 @@ public class Invaders extends Stage implements KeyListener {
 		game();
 	}
 
-	public void paintWorld() {
+	private void paintWorld() {
 
 		//get the graphics from the buffer
 		Graphics g = strategy.getDrawGraphics();
@@ -160,7 +151,7 @@ public class Invaders extends Stage implements KeyListener {
 		strategy.show();
 	}
 
-	public void paintGameOver() {
+	private void paintGameOver() {
 		Graphics g = strategy.getDrawGraphics();
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
@@ -180,7 +171,7 @@ public class Invaders extends Stage implements KeyListener {
 		strategy.show();
 	}
 
-	public void paintGameWon() {
+	private void paintGameWon() {
 		Graphics g = strategy.getDrawGraphics();
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
@@ -200,7 +191,7 @@ public class Invaders extends Stage implements KeyListener {
 		strategy.show();
 	}
 
-	public void paintScore(Graphics g) {
+	private void paintScore(Graphics g) {
 		g.setFont(new Font("Arial",Font.BOLD,20));
 		g.setColor(Color.green);
 		g.drawString("Score: ",20,20);
@@ -210,7 +201,7 @@ public class Invaders extends Stage implements KeyListener {
 
 	public void paint(Graphics g) {}
 
-	public void updateWorld() {
+	private void updateWorld() {
 
 	    int i = 0;
 		int numInvaders = 0;
@@ -307,6 +298,7 @@ public class Invaders extends Stage implements KeyListener {
 		}
 	}
 
+	@Override
 	public void keyPressed(KeyEvent e) {
 		
 		InputHandler inputHandler = new InputHandler(this, player);
@@ -317,17 +309,17 @@ public class Invaders extends Stage implements KeyListener {
 
 	}
 
+	@Override
 	public void keyReleased(KeyEvent e) {
-
-
 		InputHandler inputHandler = new InputHandler(this, player);
 		inputHandler.event = e;
-		inputHandler.action = InputHandler.Action.RELSEASE;
+		inputHandler.action = InputHandler.Action.RELEASE;
 		// starting listening for input
 		inputHandler.start();
 		//keyReleasedHandler.handleInput(e);
 	}
 
+	@Override
 	public void keyTyped(KeyEvent e) {
 	}
 

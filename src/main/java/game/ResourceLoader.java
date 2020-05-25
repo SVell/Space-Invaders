@@ -1,17 +1,14 @@
 package game;
 
+import javax.imageio.ImageIO;
 import java.applet.Applet;
 import java.applet.AudioClip;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.Transparency;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import javax.imageio.ImageIO;
 
 public class ResourceLoader implements ImageObserver {
 
@@ -27,21 +24,21 @@ public class ResourceLoader implements ImageObserver {
 	public static ResourceLoader getInstance() {
 		return instance;
 	}
-	
+
 	public void cleanup() {
 		for (AudioClip sound : sounds.values()) {
 			sound.stop();
 		}
 		
 	}
+
 	public AudioClip getSound(String name) {
 		AudioClip sound = sounds.get(name);
 		if (null != sound)
 			return sound;
-		
-		URL url = null;
+
 		try {
-			url = getClass().getClassLoader().getResource("res/" + name);
+			URL url = getClass().getClassLoader().getResource("res/" + name);
 			sound = Applet.newAudioClip(url);
 			sounds.put(name,sound);			
 		} catch (Exception e) {
@@ -50,7 +47,7 @@ public class ResourceLoader implements ImageObserver {
 		
 		return sound;
 	}
-	
+
 	/**
 	 * creates a compatible image in memory, faster than using the original image format
 	 * @param width image width
@@ -58,12 +55,9 @@ public class ResourceLoader implements ImageObserver {
 	 * @param transparency type of transparency
 	 * @return a compatible BufferedImage
 	 */
-	public static BufferedImage createCompatible(int width, int height,
-			int transparency) {
+	public static BufferedImage createCompatible(int width, int height, int transparency) {
 		GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
-		BufferedImage compatible = gc.createCompatibleImage(width, height,
-				transparency);
-		return compatible;		
+		return gc.createCompatibleImage(width, height, transparency);
 	}
 
 	/**
@@ -75,15 +69,12 @@ public class ResourceLoader implements ImageObserver {
 		BufferedImage image = images.get(name);
 		if (null != image)
 			return image;
-		
-		URL url = null;
+
 		try {
-			url = getClass().getClassLoader().getResource("res/" + name);
-			image = ImageIO.read(url);
+			image = ImageIO.read(getClass().getClassLoader().getResource("res/" + name));
 			//store a compatible image instead of the original format
 			BufferedImage compatible = createCompatible(image.getWidth(), image.getHeight(), Transparency.BITMASK);
 			compatible.getGraphics().drawImage(image, 0,0,this);
-
 			images.put(name,compatible);			
 		} catch (Exception e) {
 			System.err.println("Cound not locate image " + name + ": " + e.getMessage());			
@@ -91,7 +82,8 @@ public class ResourceLoader implements ImageObserver {
 		
 		return image;
 	}
-	
+
+	@Override
 	public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
 		return (infoflags & (ALLBITS|ABORT)) == 0;
 	}

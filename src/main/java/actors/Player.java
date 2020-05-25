@@ -1,6 +1,10 @@
 package actors;
 
+import actors.enemies.Enemy;
+import actors.projectiles.InvaderShot;
+import actors.projectiles.Shot;
 import game.Stage;
+
 import java.awt.event.KeyEvent;
 
 public class Player extends Actor {
@@ -15,37 +19,38 @@ public class Player extends Actor {
 		frame = 0;
 		frameSpeed = 35;
 		actorSpeed = 10;
-		width = 32;
-		height = 20;
-		posX = Stage.WIDTH/2;
-		posY = Stage.HEIGHT/2;
+		setWidth(32);
+		setHeight(20);
+		setX(Stage.WIDTH/2);
+		setY(Stage.HEIGHT/2);
 	}
 
+	@Override
 	public void act() {
 		super.act();		
 	}
-	
+
 	protected void updateSpeed() {
-		vx = 0;
-		vy = 0;
+		//setVx(0);
+		//setVy(0);
 		if (down)
-			vy = actorSpeed;
+			setVy(actorSpeed);
 		if (up)
-			vy = -actorSpeed;
+			setVy(-actorSpeed);
 		if (left)
-			vx = -actorSpeed;
+			setVx(-actorSpeed);
 		if (right)
-			vx = actorSpeed;
+			setVx(actorSpeed);
 		
 		//don't allow scrolling off the edge of the screen		
-		if (posX - width/2 > 0 && vx < 0)
-			posX += vx;
-		else if (posX + width  + (width/2)< Stage.WIDTH && vx > 0)
-			posX += vx;
-		else if (posY - height/2 > 0 && vy < 0)
-			posY += vy;
-		else if (posY + height + (height/2) < Stage.HEIGHT && vy > 0)
-			posY += vy;
+		if (getX() - getWidth()/2 > 0 && getVx() < 0)
+			moveX(getVx());
+		else if (getX() + getWidth()*1.5 < Stage.WIDTH && getVx() > 0)
+			moveX(getVx());
+		else if (getY() - getHeight()/2 > 0 && getVy() < 0)
+			moveY(getVy());
+		else if (getY() + getHeight()*1.5 < Stage.HEIGHT && getVy() > 0)
+			moveY(getVy());
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -92,14 +97,16 @@ public class Player extends Actor {
 		updateSpeed();
 	}
 
-	public void collision(Actor a) {		
-		stage.endGame();
+	@Override
+	public void collision(Actor a) {
+		if(a instanceof InvaderShot || a instanceof Enemy)
+			stage.endGame();
 	}
 
 	private void fire() {
 		Actor shot = new Shot(stage);
-		shot.setX(posX);
-		shot.setY(posY - shot.getHeight());
+		shot.setX(getX());
+		shot.setY(getY() - shot.getHeight());
 		stage.actors.add(shot);
 		playSound("photon.wav");
 	}
