@@ -112,7 +112,7 @@ public class Invaders extends Stage implements KeyListener {
 		//add a player
 		player = new Player(this);
 		player.setX(Stage.WIDTH/2 - player.getWidth()/2);
-		player.setY(Stage.HEIGHT - 50);
+		player.setY(Stage.HEIGHT - 70);
 		player.setVx(10);
 
 		//load cached background

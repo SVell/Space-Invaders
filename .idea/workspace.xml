@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e01f3a0e-feb8-4c9c-b5d3-838b882b1d2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Invader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Invader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/Shot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Shot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Invaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Actor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Actor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Invader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Shot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Shot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Invaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Invaders.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +37,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
     <configuration name="Invaders" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -75,7 +90,8 @@
       <option name="presentableId" value="Default" />
       <updated>1590063941058</updated>
       <workItem from="1590063955507" duration="422000" />
-      <workItem from="1590064628582" duration="3608000" />
+      <workItem from="1590064628582" duration="3747000" />
+      <workItem from="1590156735625" duration="2986000" />
     </task>
     <servers />
   </component>
@@ -83,10 +99,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="449" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590064048054">
+    <state x="552" y="222" key="#Project_Structure" timestamp="1590156574648">
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
-    <state x="449" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590064048054" />
+    <state x="552" y="222" key="#Project_Structure/0.46.1920.1034@0.46.1920.1034" timestamp="1590156574648" />
+    <state x="449" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590156676854">
+      <screen x="0" y="46" width="1920" height="1034" />
+    </state>
+    <state x="449" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590156676854" />
     <state x="713" y="366" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590126750292">
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
@@ -95,25 +115,25 @@
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
     <state x="775" y="194" key="#com.intellij.ide.macro.MacrosDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590064042803" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1590065653901">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1590223047620">
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.46.1920.1034@0.46.1920.1034" timestamp="1590065653901" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1590065653900">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.46.1920.1034@0.46.1920.1034" timestamp="1590223047620" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1590223047620">
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.46.1920.1034@0.46.1920.1034" timestamp="1590065653900" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1590065653900">
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.46.1920.1034@0.46.1920.1034" timestamp="1590223047620" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1590223047619">
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.46.1920.1034@0.46.1920.1034" timestamp="1590065653900" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1590065653901">
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.46.1920.1034@0.46.1920.1034" timestamp="1590223047619" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1590223047620">
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.46.1920.1034@0.46.1920.1034" timestamp="1590065653900" />
-    <state x="655" y="387" key="com.intellij.ide.util.TipDialog" timestamp="1590064658890">
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.46.1920.1034@0.46.1920.1034" timestamp="1590223047620" />
+    <state x="655" y="387" key="com.intellij.ide.util.TipDialog" timestamp="1590156737026">
       <screen x="0" y="46" width="1920" height="1034" />
     </state>
-    <state x="655" y="387" key="com.intellij.ide.util.TipDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590064658890" />
+    <state x="655" y="387" key="com.intellij.ide.util.TipDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590156737026" />
   </component>
 </project>

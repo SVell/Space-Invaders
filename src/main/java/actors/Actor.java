@@ -9,7 +9,7 @@ import java.awt.Rectangle;
 public class Actor {
 
 	private static final int POINT_VALUE = 0;
-	protected int vx; 
+	protected int vx;
 	protected int vy;
 	protected int posX;
 	protected int posY;

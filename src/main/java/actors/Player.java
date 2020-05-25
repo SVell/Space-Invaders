@@ -11,7 +11,7 @@ public class Player extends Actor {
 	public Player(Stage stage) {
 		super(stage);
 
-		sprites = new String[]{"player.gif"};
+		sprites = new String[]{"Plane.png"};
 		frame = 0;
 		frameSpeed = 35;
 		actorSpeed = 10;
