@@ -19,7 +19,6 @@ public class Invader extends Actor {
 			sprites = new String[]{"invader1.gif", "invader2.gif"};
 		else 
 			sprites = new String[]{"invader3.gif", "invader4.gif"};
-		
 		frame = 0;
 		frameSpeed = 50;
 		actorSpeed = 100;
@@ -30,7 +29,7 @@ public class Invader extends Actor {
 	}
 	
 	public void fire() {
-		InvaderShot shot = new InvaderShot(stage);			
+		InvaderShot shot = new InvaderShot(stage);
 		shot.setX(posX + width/2);
 		shot.setY(posY + shot.getHeight());
 		stage.actors.add(shot);

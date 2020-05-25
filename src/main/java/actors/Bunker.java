@@ -1,9 +1,9 @@
 package actors;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import game.Stage;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Bunker extends Actor {
 	
@@ -13,7 +13,7 @@ public class Bunker extends Actor {
 		super(canvas);
 		initPixels();
 	}
-	
+
 	private void initPixels() {		
 		for (int x = 0; x < 40; x++) {
 			for (int y = 0; y < 20; y++) {
@@ -21,7 +21,7 @@ public class Bunker extends Actor {
 			}
 		}		
 	}
-	
+
 	private BufferedImage getSprite() {
 		BufferedImage sprite = new BufferedImage(40, 20, BufferedImage.TYPE_INT_ARGB);
 		Graphics g = sprite.getGraphics();
@@ -33,11 +33,13 @@ public class Bunker extends Actor {
 		}
 		return sprite;
 	}
-	
+
+	@Override
 	public void paint(Graphics g) {		
-		g.drawImage(getSprite(), posX, posY, stage);
+		g.drawImage(getSprite(), getX(), getY(), stage);
 	}
 
+	@Override
 	public void collision(Actor a) {		
 	}
 }
