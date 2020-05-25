@@ -2,8 +2,8 @@ package actors;
 
 import game.ResourceLoader;
 import game.Stage;
-import java.awt.Graphics;
-import java.awt.Rectangle;
+
+import java.awt.*;
 
 
 public class Actor {
@@ -98,6 +98,23 @@ public class Actor {
 	
 	public void setVy(int vy) {
 		this.vy = vy;
+	}
+
+	public void move(Point vector){
+		posX += vector.x;
+		posY += vector.y;
+	}
+
+	public void move(int x, int y){
+		move(new Point(x, y));
+	}
+
+	public void moveX(int dx){
+		move(new Point(dx, 0));
+	}
+
+	public void moveY(int dy){
+		move(new Point(0, dy));
 	}
 
 	public int getVy() {
