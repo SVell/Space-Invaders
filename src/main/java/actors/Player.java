@@ -1,56 +1,53 @@
 package actors;
 
-import actors.enemies.Enemy;
-import actors.projectiles.InvaderShot;
-import actors.projectiles.Shot;
+//
 import game.Stage;
-
 import java.awt.event.KeyEvent;
 
 public class Player extends Actor {
 	
 	private boolean up,down,left,right;
 	private int score = 0;
+	private int lives = 3;
 	
 	public Player(Stage stage) {
 		super(stage);
 
-		sprites = new String[]{"Plane.png"};
+		sprites = new String[]{"player.gif"};
 		frame = 0;
 		frameSpeed = 35;
 		actorSpeed = 10;
-		setWidth(32);
-		setHeight(20);
-		setX(Stage.WIDTH/2);
-		setY(Stage.HEIGHT/2);
+		width = 32;
+		height = 20;
+		posX = Stage.WIDTH/2;
+		posY = Stage.HEIGHT/2;
 	}
 
-	@Override
 	public void act() {
 		super.act();		
 	}
-
+	
 	protected void updateSpeed() {
-		//setVx(0);
-		//setVy(0);
+		vx = 0;
+		vy = 0;
 		if (down)
-			setVy(actorSpeed);
+			vy = actorSpeed;
 		if (up)
-			setVy(-actorSpeed);
+			vy = -actorSpeed;
 		if (left)
-			setVx(-actorSpeed);
+			vx = -actorSpeed;
 		if (right)
-			setVx(actorSpeed);
+			vx = actorSpeed;
 		
 		//don't allow scrolling off the edge of the screen		
-		if (getX() - getWidth()/2 > 0 && getVx() < 0)
-			moveX(getVx());
-		else if (getX() + getWidth()*1.5 < Stage.WIDTH && getVx() > 0)
-			moveX(getVx());
-		else if (getY() - getHeight()/2 > 0 && getVy() < 0)
-			moveY(getVy());
-		else if (getY() + getHeight()*1.5 < Stage.HEIGHT && getVy() > 0)
-			moveY(getVy());
+		if (posX - width/2 > 0 && vx < 0)
+			posX += vx;
+		else if (posX + width  + (width/2)< Stage.WIDTH && vx > 0)
+			posX += vx;
+		else if (posY - height/2 > 0 && vy < 0)
+			posY += vy;
+		else if (posY + height + (height/2) < Stage.HEIGHT && vy > 0)
+			posY += vy;
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -97,16 +94,24 @@ public class Player extends Actor {
 		updateSpeed();
 	}
 
-	@Override
+	public int getLives(){
+		return this.lives;
+	}
+
+	public void setLives(int lifes){
+		this.lives = lifes;
+	}
+
 	public void collision(Actor a) {
-		if(a instanceof InvaderShot || a instanceof Enemy)
-			stage.endGame();
+		this.lives--;
+		if(lives == 0) stage.endGame();
+
 	}
 
 	private void fire() {
 		Actor shot = new Shot(stage);
-		shot.setX(getX());
-		shot.setY(getY() - shot.getHeight());
+		shot.setX(posX);
+		shot.setY(posY - shot.getHeight());
 		stage.actors.add(shot);
 		playSound("photon.wav");
 	}
