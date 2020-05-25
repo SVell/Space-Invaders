@@ -26,8 +26,7 @@ public class InputHandler extends Thread {
 		if (action == Action.PRESS) {
 			if (KeyEvent.VK_ENTER == event.getKeyCode()) {
 				if (invaders.gameOver || invaders.gameWon) {
-					invaders.initWorld();
-					invaders.game();
+					invaders.resetGame();
 				}
 			}
 
