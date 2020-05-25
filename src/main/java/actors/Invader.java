@@ -1,5 +1,6 @@
 package actors;
 
+import actors.projectiles.InvaderShot;
 import game.Stage;
 
 public class Invader extends Actor {
@@ -79,7 +80,7 @@ public class Invader extends Actor {
 		}
 
 		playSound("explosion.wav");
-		if (a instanceof Shot || a instanceof Player) {
+		if (a instanceof actors.Shot || a instanceof Player) {
 			setMarkedForRemoval(true);
 		}
 	}

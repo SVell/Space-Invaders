@@ -1,13 +1,13 @@
 package game;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.TexturePaint;
-import java.awt.Transparency;
+import actors.Actor;
+import actors.Invader;
+import actors.Player;
+import actors.Shot;
+import actors.enemies.Ufo;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
@@ -15,15 +15,6 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
-
-import javax.swing.*;
-
-import actors.Actor;
-import actors.Invader;
-import actors.Player;
-import actors.Shot;
-import actors.Ufo;
 
 public class Invaders extends Stage implements KeyListener {
 
@@ -329,7 +320,7 @@ public class Invaders extends Stage implements KeyListener {
 
 		InputHandler inputHandler = new InputHandler(this, player);
 		inputHandler.event = e;
-		inputHandler.action = InputHandler.Action.RELSEASE;
+		inputHandler.action = InputHandler.Action.RELEASE;
 		// starting listening for input
 		inputHandler.start();
 		

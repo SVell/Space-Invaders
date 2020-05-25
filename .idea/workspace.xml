@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e01f3a0e-feb8-4c9c-b5d3-838b882b1d2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/enemies/Invader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Invader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/enemies/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/enemies/Ufo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/actors/projectiles/InvaderShot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/projectiles/InvaderShot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Invaders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Invaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Invaders.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -124,6 +129,10 @@
     </state>
     <state width="1877" height="127" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590245739875" />
     <state width="1877" height="280" key="GridCell.Tab.0.right/0.46.1920.1034@0.46.1920.1034" timestamp="1590064377098" />
+    <state x="490" y="218" key="Maven.ArtifactSearchDialog" timestamp="1590391197336">
+      <screen x="0" y="46" width="1920" height="1034" />
+    </state>
+    <state x="490" y="218" key="Maven.ArtifactSearchDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590391197336" />
     <state x="636" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1590241222350">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>

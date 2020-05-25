@@ -1,7 +1,8 @@
 package actors.projectiles;
 
 import actors.Actor;
-import actors.enemies.Invader;
+import actors.Invader;
+import actors.Shot;
 import game.Stage;
 
 public class InvaderShot extends Shot {
