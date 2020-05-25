@@ -1,6 +1,8 @@
 package actors;
 
 //
+import actors.enemies.Ufo;
+import actors.projectiles.InvaderShot;
 import game.Stage;
 import java.awt.event.KeyEvent;
 
@@ -103,13 +105,14 @@ public class Player extends Actor {
 	}
 
 	public void collision(Actor a) {
-		this.lives--;
-		if(lives == 0) stage.endGame();
-
+		if(a instanceof InvaderShot || a instanceof Invader || a instanceof Ufo){
+			this.lives--;
+		}
+		if (lives == 0) stage.endGame();
 	}
 
 	private void fire() {
-		Actor shot = new Shot(stage);
+		Actor shot = new actors.Shot(stage);
 		shot.setX(posX);
 		shot.setY(posY - shot.getHeight());
 		stage.actors.add(shot);
