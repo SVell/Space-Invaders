@@ -100,8 +100,8 @@ public class Invaders extends Stage{
 				inv.setRightWall((j + 1)*xPad + 20);
 				actors.add(inv);
 			}
-		}
-	}*/
+		}*/
+	}
 
 
 	private void initWorld() {
@@ -343,3 +343,4 @@ public class Invaders extends Stage{
 		inv.game();
 	}
 }
+

@@ -90,11 +90,11 @@ public class Player extends Actor {
 	}
 
 	private void fire() {
-		Actor shot = new actors.Shot(stage);
+		/*Actor shot = new actors.Shot(stage);
 		shot.setX(posX + 1 + getWidth()/2-shot.getWidth()/2);
 		shot.setY(posY - shot.getHeight());
 		stage.actors.add(shot);
-		playSound("photon.wav");
+		playSound("photon.wav");*/
 	}
 
 	public void updateScore(int score) {
