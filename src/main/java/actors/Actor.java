@@ -19,6 +19,10 @@ public class Actor {
 	protected int frameSpeed;
 	protected int actorSpeed;
 	protected int time;
+	protected int lives;
+
+	protected boolean gotShoot = false;
+
 	private boolean markedForRemoval = false;
 	protected String[] sprites = null; 
 	protected Stage stage = null;
@@ -52,7 +56,7 @@ public class Actor {
 	}
 
 			
-	public void paint(Graphics g) {		
+	public void paint(Graphics g) {
 		g.drawImage(ResourceLoader.getInstance().getSprite(sprites[frame]), posX, posY, stage);
 	}
 	
@@ -90,6 +94,27 @@ public class Actor {
 	
 	public void setVx(int vx) {
 		this.vx = vx;
+	}
+
+	public void getShot(){
+		this.gotShoot = true;
+	}
+	
+	// checks if actor was shot by bullet
+	public boolean isGotShot(){
+		return this.gotShoot;
+	}
+
+	public void decLives(){
+		this.lives--;
+	}
+
+	public int getLives() {
+		return lives;
+	}
+
+	public void setLives(int lives) {
+		this.lives = lives;
 	}
 
 	public int getVx() {

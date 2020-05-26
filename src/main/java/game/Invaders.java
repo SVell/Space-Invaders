@@ -6,12 +6,17 @@ import actors.Player;
 import actors.enemies.Ufo;
 import actors.projectiles.Shot;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.TargetDataLine;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Invaders extends Stage{
@@ -19,6 +24,10 @@ public class Invaders extends Stage{
 	private static final long serialVersionUID = 1L;
 	private JFrame gameFrame;
 	private Player player;
+
+	private InputHandler keyPressedHandler;
+	private InputHandler keyReleasedHandler;
+	private final int SPAWN_CHANCE = 998;
 
 	private long usedTime;//time taken per game step
 	private BufferStrategy strategy;	 //double buffering strategy
@@ -67,7 +76,10 @@ public class Invaders extends Stage{
 	/**
 	 * add a grid of invaders based on the screen size
 	 */
+
 	private void addInvaders() {
+
+	/*public void addInvaders() {
 		Invader invader = new Invader(this);
 		//padding between units/rows
 		int xPad = invader.getWidth() + 15;
@@ -89,7 +101,7 @@ public class Invaders extends Stage{
 				actors.add(inv);
 			}
 		}
-	}
+	}*/
 
 
 	private void initWorld() {
@@ -99,11 +111,11 @@ public class Invaders extends Stage{
 		//add a player
 		player = new Player(this);
 		player.setX(Stage.WIDTH / 2 - player.getWidth() / 2);
-		player.setY(Stage.HEIGHT - 50);
+		player.setY(Stage.HEIGHT - 80);
 		player.setVx(10);
 
 		//load cached background
-		backgroundTile = ResourceLoader.getInstance().getSprite("space.gif");
+		backgroundTile = ResourceLoader.getInstance().getSprite("bgNew.png");
 		background = ResourceLoader.createCompatible(
 				WIDTH, HEIGHT + backgroundTile.getHeight(),
 				Transparency.OPAQUE);
@@ -112,7 +124,15 @@ public class Invaders extends Stage{
 		g.fillRect(0, 0, background.getWidth(), background.getHeight());
 		backgroundY = backgroundTile.getHeight();
 
+
 		addInvaders();
+
+
+		/*keyPressedHandler = new InputHandler(this, player);
+		keyPressedHandler.action = InputHandler.Action.PRESS;
+		keyReleasedHandler = new InputHandler(this, player);
+		keyReleasedHandler.action = InputHandler.Action.RELEASE;*/
+		//addInvaders();
 	}
 
 	private void resetGame(){
@@ -130,8 +150,9 @@ public class Invaders extends Stage{
 		//load subimage from the background
 		g.drawImage( background,0,0,Stage.WIDTH,Stage.HEIGHT,0,backgroundY,Stage.WIDTH,backgroundY+Stage.HEIGHT,this);
 
-		//paint the actors
-		for (Actor actor : actors) {
+		//paint the actors (Enemies)
+		for (int i = 0; i < actors.size(); i++) {
+			Actor actor = actors.get(i);
 			actor.paint(g);
 		}
 
@@ -147,17 +168,17 @@ public class Invaders extends Stage{
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
 
-		paintScore(g);
-
 		//about 310 pixels wide
 		g.setFont(new Font("Arial",Font.BOLD,50));
 		g.setColor(Color.RED);
 		int xPos = getWidth()/2 - 155;
-		g.drawString("GAME OVER",(xPos < 0 ? 0 : xPos),getHeight()/2);
-
+		g.drawString("GAME OVER",(xPos < 0 ? 0 : xPos),getHeight()/2 -200);
+		g.setColor(Color.yellow);
+		g.drawString("YOUR SCORE: " + player.getScore(),(getWidth()/2- 200),getHeight()/2);
+		g.setColor(Color.red);
 		xPos += 30;
 		g.setFont(new Font("Arial",Font.BOLD,30));
-		g.drawString("ENTER: try again",(xPos < 0 ? 0 : xPos),getHeight()/2 + 50);
+		g.drawString("ENTER: try again",(xPos < 0 ? 0 : xPos),getHeight() - 100);
 
 		strategy.show();
 		waitForInput();
@@ -212,14 +233,19 @@ public class Invaders extends Stage{
 	private void updateWorld() {
 
 	    int i = 0;
-		int numInvaders = 0;
+		int numInvaders = 1;
 		while (i < actors.size()) {
 			Actor actor = actors.get(i);
 			if (actor instanceof Shot)
 				checkCollision(actor);
 
-			if (actor.isMarkedForRemoval()) {
+			if (actor.isMarkedForRemoval() && actor.isGotShot()) {
 				player.updateScore(actor.getPointValue());
+				actors.remove(i);
+			} else if(actor.isMarkedForRemoval() && actor instanceof Invader){
+				player.decLives();
+				actors.remove(i);
+			} else if(actor.isMarkedForRemoval()){
 				actors.remove(i);
 			}
 			else {
@@ -260,7 +286,7 @@ public class Invaders extends Stage{
 
 
 	public void game() {
-		loopSound("music.wav");
+		loopSound("bg.mp3");
 		usedTime= 0;
 		while(isVisible()) {
 			long startTime = System.currentTimeMillis();
@@ -279,20 +305,26 @@ public class Invaders extends Stage{
 			}
 
 			int random = (int)(Math.random()*1000);
-			if (random == 700) {
-				Actor ufo = new Ufo(this);
-				ufo.setX(0);
-				ufo.setY(20);
-				ufo.setVx(1);
-				actors.add(ufo);
+			if (random >= SPAWN_CHANCE) {
+
+				Actor invader = new Invader(this);
+				int Min = 10;
+				int Max = gameFrame.getX() - invader.getWidth() - 10;
+				int xPosition = Min + (int)(Math.random() * ((Max - Min) + 1));
+				invader.setX(xPosition);
+				invader.setY(-40);
+				invader.setVx(0);
+				invader.setVy(1);
+				actors.add(invader);
 			}
+
+
 
 			updateWorld();
 			player.updateControls();
 			paintWorld();
 
 			usedTime = System.currentTimeMillis() - startTime;
-
 			//calculate sleep time
 			if (usedTime == 0) usedTime = 1;
 			int timeDiff = (int) ((1000/usedTime) - DESIRED_FPS);

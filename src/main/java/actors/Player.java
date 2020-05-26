@@ -7,6 +7,8 @@ import actors.projectiles.Shot;
 import game.Key;
 import game.Stage;
 
+import java.awt.event.KeyEvent;
+
 public class Player extends Actor {
 
 	private int score = 0;
@@ -17,7 +19,7 @@ public class Player extends Actor {
 	public Player(Stage stage) {
 		super(stage);
 
-		sprites = new String[]{"player.gif"};
+		sprites = new String[]{"Plane.png"};
 		frame = 0;
 		frameSpeed = 35;
 		actorSpeed = 4;
@@ -67,21 +69,30 @@ public class Player extends Actor {
 		return this.lives;
 	}
 
-	public void setLives(int lives){
-		this.lives = lives;
+	public void decLives(){
+		this.lives--;
+		isPlayerDead();
+	}
+
+	public void setLives(int lifes){
+		this.lives = lifes;
 	}
 
 	public void collision(Actor a) {
 		if(a instanceof InvaderShot || a instanceof Invader || a instanceof Ufo){
 			this.lives--;
 		}
-		if (lives == 0) stage.endGame();
+		isPlayerDead();
+	}
+
+	public void isPlayerDead(){
+			if(lives == 0) stage.endGame();
 	}
 
 	private void fire() {
-		Actor shot = new Shot(stage);
-		shot.setX(getX());
-		shot.setY(getY() - shot.getHeight());
+		Actor shot = new actors.Shot(stage);
+		shot.setX(posX + 1 + getWidth()/2-shot.getWidth()/2);
+		shot.setY(posY - shot.getHeight());
 		stage.actors.add(shot);
 		playSound("photon.wav");
 	}
