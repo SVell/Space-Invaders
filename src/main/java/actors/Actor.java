@@ -56,7 +56,7 @@ public class Actor {
 	}
 
 			
-	public void paint(Graphics g) {		
+	public void paint(Graphics g) {
 		g.drawImage(ResourceLoader.getInstance().getSprite(sprites[frame]), posX, posY, stage);
 	}
 	

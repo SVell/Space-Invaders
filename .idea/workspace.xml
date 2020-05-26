@@ -13,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/actors/Invader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Invader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/actors/Invader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Invader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Player.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,43 +24,40 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cDX3tIuQfwLFhAUEScezAha6d6" />
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
-=======
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/res" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
->>>>>>> Stashed changes
-  </component>
->>>>>>> Stashed changes
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/res" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="Z:\moosor\Desktop\gameSwing\Space-Invaders\src\main\resources\res" />
-    </key>
   </component>
   <component name="RunManager">
-    <configuration name="das" type="Application" factoryName="Application">
+    <configuration name="Invaders" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.5" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="game.Invaders" />
       <module name="space-invaders" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.5" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="game.Invaders" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Invaders" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -79,116 +75,17 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="756211a5-ff6e-49fc-b75a-453ccce3253d" name="Default Changelist" comment="" />
+      <created>1590495431530</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590495431530</updated>
+      <workItem from="1590495440813" duration="320000" />
+    </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-<<<<<<< Updated upstream
-    <state width="1877" height="307" key="GridCell.Tab.0.bottom" timestamp="1590488139458">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="307" key="GridCell.Tab.0.center" timestamp="1590488139458">
-      <screen x="0" y="30" width="1920" height="1050" />
-=======
-<<<<<<< Updated upstream
-    <state x="449" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590064048054">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="449" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590064048054" />
-    <state x="775" y="194" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1590064042803">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="775" y="194" key="#com.intellij.ide.macro.MacrosDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590064042803" />
-    <state x="803" y="455" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1590412933870">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="803" y="445" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590144547234" />
-    <state x="803" y="455" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590412933870" />
-    <state x="740" y="311" key="FileChooserDialogImpl" timestamp="1590145268257">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="740" y="311" key="FileChooserDialogImpl/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590145268257" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1590419019140">
-      <screen x="0" y="46" width="1920" height="1034" />
-=======
-    <state x="808" y="452" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1590493675378">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="808" y="452" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590493675378" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1590493802084">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.46.1920.1034@0.46.1920.1034" timestamp="1590493802084" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1590493802082">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.46.1920.1034@0.46.1920.1034" timestamp="1590493802082" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1590493802081">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.46.1920.1034@0.46.1920.1034" timestamp="1590493802081" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1590493802083">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.46.1920.1034@0.46.1920.1034" timestamp="1590493802083" />
-    <state width="1877" height="307" key="GridCell.Tab.1.bottom" timestamp="1590488139345">
-      <screen x="0" y="30" width="1920" height="1050" />
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="307" key="GridCell.Tab.0.left" timestamp="1590488139458">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="307" key="GridCell.Tab.0.right" timestamp="1590488139458">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1237" height="307" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810580" />
-    <state width="1877" height="307" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139458" />
-    <state width="1877" height="307" key="GridCell.Tab.1.bottom" timestamp="1590488139345">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1877" height="330" key="GridCell.Tab.1.bottom/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810490" />
-    <state width="1877" height="307" key="GridCell.Tab.1.bottom/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139345" />
-    <state width="1877" height="307" key="GridCell.Tab.1.center" timestamp="1590488139345">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1877" height="330" key="GridCell.Tab.1.center/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810490" />
-    <state width="1877" height="307" key="GridCell.Tab.1.center/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139345" />
-    <state width="1877" height="307" key="GridCell.Tab.1.left" timestamp="1590488139345">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1877" height="330" key="GridCell.Tab.1.left/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810490" />
-    <state width="1877" height="307" key="GridCell.Tab.1.left/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139345" />
-    <state width="1877" height="307" key="GridCell.Tab.1.right" timestamp="1590488139345">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-<<<<<<< Updated upstream
-    <state width="1877" height="330" key="GridCell.Tab.1.right/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810490" />
-    <state width="1877" height="307" key="GridCell.Tab.1.right/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139345" />
-=======
-<<<<<<< Updated upstream
-    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590147547932" />
-=======
-    <state width="1877" height="330" key="GridCell.Tab.1.right/0.30.1920.1050/-1280.82.1280.994@-1280.82.1280.994" timestamp="1590487810490" />
-    <state width="1877" height="307" key="GridCell.Tab.1.right/0.30.1920.1050/-1280.82.1280.994@0.30.1920.1050" timestamp="1590488139345" />
-    <state x="655" y="387" key="com.intellij.ide.util.TipDialog" timestamp="1590493659336">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="655" y="387" key="com.intellij.ide.util.TipDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590493659336" />
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
 </project>
