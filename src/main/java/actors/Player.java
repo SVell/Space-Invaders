@@ -70,12 +70,12 @@ public class Player extends Actor {
 	}
 
 	public void decLives(){
-		this.lives--;
+		--this.lives;
 		isPlayerDead();
 	}
 
-	public void setLives(int lifes){
-		this.lives = lifes;
+	public void setLives(int lives){
+		this.lives = lives;
 	}
 
 	public void collision(Actor a) {
@@ -92,7 +92,7 @@ public class Player extends Actor {
 	private void fire() {
 
 		Actor shot = new Shot(stage);
-		shot.setX(getX());
+		shot.setX(getX() + shot.getWidth() + 2);
 		shot.setY(getY() - shot.getHeight());
 		stage.actors.add(shot);
 		playSound("photon.wav");

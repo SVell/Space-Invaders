@@ -102,10 +102,10 @@ public class Invader extends Actor {
 		}
 
 		playSound("explosion.wav");
-		/*if (a instanceof actors.Shot || a instanceof Player) {
+		if (a instanceof Shot || a instanceof Player) {
 			getShot();
 			setMarkedForRemoval(true);
-		}*/
+		}
 	}
 	
 	public int getPointValue() {
