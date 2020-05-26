@@ -73,24 +73,30 @@ public class Invader extends Actor {
 	}
 	
 	private void updateXSpeed() {
-		if (time % actorSpeed == 0) {
+		/*if (time % actorSpeed == 0) {
 			moveX(getVx());
 			if (getX() < leftWall || getX() > rightWall) setVx(-getVx());
-		}
+		}*/
 	}
 	
 	private void updateYSpeed() {
-		step++;
+		moveY(getVy());
+		if (getY() >= stage.getHeight())
+			setMarkedForRemoval(true);
+
+		/*step++;
 		if (step == advanceTime) {
 			moveY(height);
 			step = 0;
 		}	
 
 		if (getY() == stage.getHeight())
-			stage.endGame();
+			stage.endGame();*/
 	}
 
 	public void collision(Actor a) {
+
+
 		if (a instanceof InvaderShot) {
 			return;
 		}
