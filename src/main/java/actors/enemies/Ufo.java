@@ -17,8 +17,8 @@ public class Ufo extends Enemy {
 		setHeight(17);
 		setX(Stage.WIDTH/2);
 		setY(Stage.HEIGHT/2);
-		setVx(1);
-		setVy(0);
+		setVx(0);
+		setVy(1);
 	}
 
 	@Override
@@ -29,12 +29,13 @@ public class Ufo extends Enemy {
 	}
 
 	private void updateXSpeed() {
-		moveX(getVx());
-		if (getX() > stage.getWidth()) setMarkedForRemoval(true);
+		/*moveX(getVx());
+		if (getX() > stage.getWidth()) setMarkedForRemoval(true);*/
 	}
 	
 	private void updateYSpeed() {
-		
+		moveY(getVy());
+		if (getY() > stage.getHeight()) setMarkedForRemoval(true);
 	}
 
 	@Override

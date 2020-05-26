@@ -27,6 +27,8 @@ public class Invader extends Actor {
 		height = 20;
 		posX = Stage.WIDTH/2;
 		posY = Stage.HEIGHT/2;
+		setVy(1);
+		setVx(0);
 	}
 	
 	public void fire() {
@@ -57,21 +59,16 @@ public class Invader extends Actor {
 	}
 	
 	private void updateXSpeed() {
-		if (time % actorSpeed == 0) {
+		/*if (time % actorSpeed == 0) {
 			posX += getVx();
 			if (posX < leftWall || posX > rightWall) setVx(-getVx());
-		}
+		}*/
 	}
 	
 	private void updateYSpeed() {
-		step++;
-		if (step == advanceTime) {
-			posY += height;
-			step = 0;
-		}	
-
-		if (posY == stage.getHeight()) 
-			stage.endGame();
+		moveY(getVy());
+		if (posY >= stage.getHeight())
+			setMarkedForRemoval(true);
 	}
 
 	public void collision(Actor a) {
@@ -81,6 +78,7 @@ public class Invader extends Actor {
 
 		playSound("explosion.wav");
 		if (a instanceof actors.Shot || a instanceof Player) {
+			getShot();
 			setMarkedForRemoval(true);
 		}
 	}

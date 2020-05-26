@@ -100,6 +100,11 @@ public class Player extends Actor {
 		return this.lives;
 	}
 
+	public void decLives(){
+		this.lives--;
+		isPlayerDead();
+	}
+
 	public void setLives(int lifes){
 		this.lives = lifes;
 	}
@@ -108,12 +113,16 @@ public class Player extends Actor {
 		if(a instanceof InvaderShot || a instanceof Invader || a instanceof Ufo){
 			this.lives--;
 		}
-		if (lives == 0) stage.endGame();
+		isPlayerDead();
+	}
+
+	public void isPlayerDead(){
+			if(lives == 0) stage.endGame();
 	}
 
 	private void fire() {
 		Actor shot = new actors.Shot(stage);
-		shot.setX(posX);
+		shot.setX(posX + 1 + getWidth()/2-shot.getWidth()/2);
 		shot.setY(posY - shot.getHeight());
 		stage.actors.add(shot);
 		playSound("photon.wav");
