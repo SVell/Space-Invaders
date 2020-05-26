@@ -113,7 +113,7 @@ public class Invaders extends Stage implements KeyListener {
 		player.setVx(10);
 
 		//load cached background
-		backgroundTile = ResourceLoader.getInstance().getSprite("space.gif");
+		backgroundTile = ResourceLoader.getInstance().getSprite("bgNew.png");
 		background = ResourceLoader.createCompatible(
 				WIDTH, HEIGHT + backgroundTile.getHeight(),
 				Transparency.OPAQUE);

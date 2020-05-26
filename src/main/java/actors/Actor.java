@@ -99,6 +99,7 @@ public class Actor {
 	public void getShot(){
 		this.gotShoot = true;
 	}
+	
 	// checks if actor was shot by bullet
 	public boolean isGotShot(){
 		return this.gotShoot;
