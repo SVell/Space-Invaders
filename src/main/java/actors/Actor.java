@@ -9,10 +9,10 @@ import java.awt.*;
 public class Actor {
 
 	private static final int POINT_VALUE = 0;
-	protected int vx;
-	protected int vy;
-	protected int posX;
-	protected int posY;
+	private int vx;
+	private int vy;
+	private int posX;
+	private int posY;
 	protected int height;
 	protected int width;
 	protected int frame;

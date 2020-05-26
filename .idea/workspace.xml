@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e01f3a0e-feb8-4c9c-b5d3-838b882b1d2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/BulletEnemy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/ShootSound.flac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/bg.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/bgNew.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/enemy1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/enemy2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/enemy3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/res/enemy4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/actors/Invader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Invader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/actors/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Invaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Invaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Actor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Actor$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Actor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Actor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/Invader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Invader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/enemies/Ufo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/enemies/Ufo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/actors/projectiles/InvaderShot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/actors/projectiles/InvaderShot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Invaders$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Invaders$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Invaders$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Invaders$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Invaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Invaders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Stage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Stage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,5 +89,27 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590497515207">
+      <screen x="0" y="46" width="1920" height="1034" />
+    </state>
+    <state x="414" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1590497515207" />
+    <state width="1877" height="279" key="GridCell.Tab.0.bottom" timestamp="1590497889370">
+      <screen x="0" y="46" width="1920" height="1034" />
+    </state>
+    <state width="1877" height="279" key="GridCell.Tab.0.bottom/0.46.1920.1034@0.46.1920.1034" timestamp="1590497889370" />
+    <state width="1877" height="279" key="GridCell.Tab.0.center" timestamp="1590497889370">
+      <screen x="0" y="46" width="1920" height="1034" />
+    </state>
+    <state width="1877" height="279" key="GridCell.Tab.0.center/0.46.1920.1034@0.46.1920.1034" timestamp="1590497889370" />
+    <state width="1877" height="279" key="GridCell.Tab.0.left" timestamp="1590497889370">
+      <screen x="0" y="46" width="1920" height="1034" />
+    </state>
+    <state width="1877" height="279" key="GridCell.Tab.0.left/0.46.1920.1034@0.46.1920.1034" timestamp="1590497889370" />
+    <state width="1877" height="279" key="GridCell.Tab.0.right" timestamp="1590497889370">
+      <screen x="0" y="46" width="1920" height="1034" />
+    </state>
+    <state width="1877" height="279" key="GridCell.Tab.0.right/0.46.1920.1034@0.46.1920.1034" timestamp="1590497889370" />
   </component>
 </project>

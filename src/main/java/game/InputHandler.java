@@ -1,44 +1,40 @@
 package game;
 
-import actors.Player;
-
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.HashMap;
 
-/**
- * creates a thread to process player input
- * @author ghast
- *
- */
-public class InputHandler extends Thread {
+public class InputHandler implements KeyListener{
 
-	private Invaders invaders = null;
-	private Player player  = null;
-	public Action action;
-	public KeyEvent event;
+	InputHandler(){
+		bind(KeyEvent.VK_UP, Key.up);
+		bind(KeyEvent.VK_LEFT, Key.left);
+		bind(KeyEvent.VK_DOWN, Key.down);
+		bind(KeyEvent.VK_RIGHT, Key.right);
+		bind(KeyEvent.VK_SPACE, Key.space);
+		bind(KeyEvent.VK_ENTER, Key.enter);
+	}
 
-	public InputHandler(Invaders invaders, Player player) {
-		this.invaders = invaders;
-		this.player = player;
+	private HashMap<Integer, Key> keyBindings = new HashMap<>();
+
+	private void bind(Integer keyCode, Key key){
+		keyBindings.put(keyCode, key);
 	}
 
 	@Override
-	public void run() {
-		if (action == Action.PRESS) {
-			if (KeyEvent.VK_ENTER == event.getKeyCode()) {
-				if (invaders.gameOver || invaders.gameWon) {
-					invaders.resetGame();
-				}
-			}
+	public void keyTyped(KeyEvent e) {
 
-			else
-				player.keyPressed(event);
-		}
-		else if (action == Action.RELEASE)
-			player.keyReleased(event);
 	}
 
-	public enum Action {
-		PRESS,
-		RELEASE
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(keyBindings.get(e.getKeyCode()) != null)
+			keyBindings.get(e.getKeyCode()).isDown = true;
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if(keyBindings.get(e.getKeyCode()) != null)
+			keyBindings.get(e.getKeyCode()).isDown = false;
 	}
 }
