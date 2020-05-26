@@ -1,6 +1,7 @@
 package actors;
 
 import actors.projectiles.InvaderShot;
+import actors.projectiles.Shot;
 import game.Stage;
 
 public class Invader extends Actor {
@@ -25,14 +26,14 @@ public class Invader extends Actor {
 		actorSpeed = 100;
 		width = 20;
 		height = 20;
-		posX = Stage.WIDTH/2;
-		posY = Stage.HEIGHT/2;
+		setX(Stage.WIDTH/2);
+		setY(Stage.HEIGHT/2);
 	}
 	
 	public void fire() {
 		InvaderShot shot = new InvaderShot(stage);
-		shot.setX(posX + width/2);
-		shot.setY(posY + shot.getHeight());
+		shot.setX(getX() + width/2);
+		shot.setY(getY() + shot.getHeight());
 		stage.actors.add(shot);
 	}
 	
@@ -58,19 +59,19 @@ public class Invader extends Actor {
 	
 	private void updateXSpeed() {
 		if (time % actorSpeed == 0) {
-			posX += getVx();
-			if (posX < leftWall || posX > rightWall) setVx(-getVx());
+			moveX(getVx());
+			if (getX() < leftWall || getX() > rightWall) setVx(-getVx());
 		}
 	}
 	
 	private void updateYSpeed() {
 		step++;
 		if (step == advanceTime) {
-			posY += height;
+			moveY(height);
 			step = 0;
 		}	
 
-		if (posY == stage.getHeight()) 
+		if (getY() == stage.getHeight())
 			stage.endGame();
 	}
 
@@ -80,7 +81,7 @@ public class Invader extends Actor {
 		}
 
 		playSound("explosion.wav");
-		if (a instanceof actors.Shot || a instanceof Player) {
+		if (a instanceof Shot || a instanceof Player) {
 			setMarkedForRemoval(true);
 		}
 	}

@@ -2,7 +2,7 @@ package actors.enemies;
 
 import actors.Actor;
 import actors.Player;
-import actors.Shot;
+import actors.projectiles.Shot;
 import game.Stage;
 
 public class Ufo extends Enemy {

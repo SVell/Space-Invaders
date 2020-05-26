@@ -1,5 +1,7 @@
-package actors;
+package actors.projectiles;
 
+import actors.Actor;
+import actors.Player;
 import game.Stage;
 
 public class Shot extends Actor {
@@ -17,11 +19,11 @@ public class Shot extends Actor {
 	public void act() {
 		super.act();
 		if (up)
-			posY -= bulletSpeed;
+			moveY(-bulletSpeed);
 		else
-			posY += bulletSpeed;
+			moveY(bulletSpeed);
 		
-		if (posY < 0)
+		if (getY() < 0)
 			setMarkedForRemoval(true);
 	}
 	
