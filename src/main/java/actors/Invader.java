@@ -1,6 +1,7 @@
 package actors;
 
 import actors.projectiles.InvaderShot;
+import actors.projectiles.Shot;
 import game.Stage;
 
 import java.util.Random;
@@ -40,16 +41,14 @@ public class Invader extends Actor {
 		actorSpeed = 100;
 		width = 20;
 		height = 20;
-		posX = Stage.WIDTH/2;
-		posY = Stage.HEIGHT/2;
-		setVy(1);
-		setVx(0);
+		setX(Stage.WIDTH/2);
+		setY(Stage.HEIGHT/2);
 	}
 	
 	public void fire() {
 		InvaderShot shot = new InvaderShot(stage);
-		shot.setX(posX + width/2);
-		shot.setY(posY + shot.getHeight());
+		shot.setX(getX() + width/2);
+		shot.setY(getY() + shot.getHeight());
 		stage.actors.add(shot);
 	}
 	
@@ -75,27 +74,38 @@ public class Invader extends Actor {
 	
 	private void updateXSpeed() {
 		/*if (time % actorSpeed == 0) {
-			posX += getVx();
-			if (posX < leftWall || posX > rightWall) setVx(-getVx());
+			moveX(getVx());
+			if (getX() < leftWall || getX() > rightWall) setVx(-getVx());
 		}*/
 	}
 	
 	private void updateYSpeed() {
 		moveY(getVy());
-		if (posY >= stage.getHeight())
+		if (getY() >= stage.getHeight())
 			setMarkedForRemoval(true);
+
+		/*step++;
+		if (step == advanceTime) {
+			moveY(height);
+			step = 0;
+		}	
+
+		if (getY() == stage.getHeight())
+			stage.endGame();*/
 	}
 
 	public void collision(Actor a) {
+
+
 		if (a instanceof InvaderShot) {
 			return;
 		}
 
 		playSound("explosion.wav");
-		if (a instanceof actors.Shot || a instanceof Player) {
+		/*if (a instanceof actors.Shot || a instanceof Player) {
 			getShot();
 			setMarkedForRemoval(true);
-		}
+		}*/
 	}
 	
 	public int getPointValue() {
