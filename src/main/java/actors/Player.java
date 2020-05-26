@@ -90,9 +90,16 @@ public class Player extends Actor {
 	}
 
 	private void fire() {
-		/*Actor shot = new actors.Shot(stage);
-		shot.setX(posX + 1 + getWidth()/2-shot.getWidth()/2);
-		shot.setY(posY - shot.getHeight());
+
+		Actor shot = new Shot(stage);
+		shot.setX(getX());
+		shot.setY(getY() - shot.getHeight());
+		stage.actors.add(shot);
+		playSound("photon.wav");
+
+		/*Actor shot = new Shot(stage);
+		shot.setX(getX() + 1 + getWidth()/2-shot.getWidth()/2);
+		shot.setY(getY() - shot.getHeight());
 		stage.actors.add(shot);
 		playSound("photon.wav");*/
 	}
