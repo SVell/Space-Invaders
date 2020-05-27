@@ -28,7 +28,7 @@ public class Shot extends Actor {
 	}
 	
 	public void collision(Actor a) {
-		if(!(a instanceof Player || a instanceof Shot)) {
+		if(!(a instanceof Player || a instanceof Shot || a instanceof HpBuff)) {
 			setMarkedForRemoval(true);
 		}
 	}

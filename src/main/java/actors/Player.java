@@ -2,6 +2,7 @@ package actors;
 
 //
 import actors.enemies.Ufo;
+import actors.projectiles.HpBuff;
 import actors.projectiles.InvaderShot;
 import actors.projectiles.Shot;
 import game.Key;
@@ -14,7 +15,7 @@ public class Player extends Actor {
 	private int score = 0;
 	private int lives = 3;
 	private long pressTime = System.currentTimeMillis();
-	private long fireRate = 100000000L;
+	private long fireRate = 200000000L;
 	
 	public Player(Stage stage) {
 		super(stage);
@@ -55,14 +56,15 @@ public class Player extends Actor {
 		}
 		
 		//don't allow scrolling off the edge of the screen		
-		if (getX() - width/2 > 0 && getVx() < 0)
+		if (getX() > 0 && getVx() < 0)
 			moveX(getVx());
 		else if (getX() + width  + (width/2)< Stage.WIDTH && getVx() > 0)
 			moveX(getVx());
 		if (getY() - height/2 > 0 && getVy() < 0)
 			moveY(getVy());
-		else if (getY() + height + (height/2) < Stage.HEIGHT && getVy() > 0)
+		else if (getY() + height + 52 < Stage.HEIGHT && getVy() > 0) 
 			moveY(getVy());
+
 	}
 
 	public int getLives(){
@@ -70,17 +72,22 @@ public class Player extends Actor {
 	}
 
 	public void decLives(){
-		this.lives--;
+		//playSound("damage.mp3");
+		--this.lives;
 		isPlayerDead();
 	}
 
-	public void setLives(int lifes){
-		this.lives = lifes;
+	public void setLives(int lives){
+		this.lives = lives;
 	}
 
 	public void collision(Actor a) {
+		//playSound("dam.mp3");
 		if(a instanceof InvaderShot || a instanceof Invader || a instanceof Ufo){
 			this.lives--;
+		}
+		if(a instanceof HpBuff){
+			this.lives++;
 		}
 		isPlayerDead();
 	}
@@ -92,7 +99,7 @@ public class Player extends Actor {
 	private void fire() {
 
 		Actor shot = new Shot(stage);
-		shot.setX(getX());
+		shot.setX(getX() + shot.getWidth() + 2);
 		shot.setY(getY() - shot.getHeight());
 		stage.actors.add(shot);
 		playSound("photon.wav");

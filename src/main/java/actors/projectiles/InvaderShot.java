@@ -14,7 +14,7 @@ public class InvaderShot extends Shot {
 
 	@Override
 	public void collision(Actor a) {
-		if (a instanceof Invader)
+		if (a instanceof Invader || a instanceof HpBuff)
 			return;
 		setMarkedForRemoval(true);
 	}

@@ -9,8 +9,10 @@ import java.util.Random;
 public class Invader extends Actor {
 	
 	private static final int POINT_VALUE = 10;
-	protected static final double FIRING_FREQUENCY = 0.01;
-	 
+	protected static final double FIRING_FREQUENCY = 0.07;
+
+
+	private boolean canShoot = true;
 	private int leftWall = 0;
 	private int rightWall = 0;
 	private int step = 0;
@@ -33,6 +35,8 @@ public class Invader extends Actor {
 				break;
 			case 3:
 				sprites = new String[]{"enemy4.png"};
+				lives = 3;
+				canShoot = false;
 				break;
 
 		}
@@ -46,10 +50,12 @@ public class Invader extends Actor {
 	}
 	
 	public void fire() {
-		InvaderShot shot = new InvaderShot(stage);
-		shot.setX(getX() + width/2);
-		shot.setY(getY() + shot.getHeight());
-		stage.actors.add(shot);
+		if(canShoot){
+			InvaderShot shot = new InvaderShot(stage);
+			shot.setX(getX() + width/2);
+			shot.setY(getY() + shot.getHeight());
+			stage.actors.add(shot);
+		}
 	}
 	
 	public void act() {
@@ -94,6 +100,20 @@ public class Invader extends Actor {
 			stage.endGame();*/
 	}
 
+	public int getLives(){
+		return this.lives;
+	}
+
+	public void decLives(){
+		//playSound("damage.mp3");
+		--this.lives;
+		isDead();
+	}
+
+	public void isDead(){
+		if(lives == 0) setMarkedForRemoval(true);
+	}
+
 	public void collision(Actor a) {
 
 
@@ -102,10 +122,11 @@ public class Invader extends Actor {
 		}
 
 		playSound("explosion.wav");
-		/*if (a instanceof actors.Shot || a instanceof Player) {
+		if (a instanceof Shot || a instanceof Player) {
 			getShot();
-			setMarkedForRemoval(true);
-		}*/
+			decLives();
+			//setMarkedForRemoval(true);
+		}
 	}
 	
 	public int getPointValue() {
