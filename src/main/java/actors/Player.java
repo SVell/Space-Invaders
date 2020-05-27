@@ -55,14 +55,15 @@ public class Player extends Actor {
 		}
 		
 		//don't allow scrolling off the edge of the screen		
-		if (getX() - width/2 > 0 && getVx() < 0)
+		if (getX() > 0 && getVx() < 0)
 			moveX(getVx());
 		else if (getX() + width  + (width/2)< Stage.WIDTH && getVx() > 0)
 			moveX(getVx());
 		if (getY() - height/2 > 0 && getVy() < 0)
 			moveY(getVy());
-		else if (getY() + height + (height/2) < Stage.HEIGHT && getVy() > 0)
+		else if (getY() + height + 52 < Stage.HEIGHT && getVy() > 0) 
 			moveY(getVy());
+
 	}
 
 	public int getLives(){
