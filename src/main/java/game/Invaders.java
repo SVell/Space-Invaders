@@ -284,9 +284,8 @@ public class Invaders extends Stage{
 		}).start();
 	}
 
-
 	public void game() {
-		loopSound("bg.mp3");
+		loopSound("kick.wav");
 		usedTime= 0;
 		while(isVisible()) {
 			long startTime = System.currentTimeMillis();
