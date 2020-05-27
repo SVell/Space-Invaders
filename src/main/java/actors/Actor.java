@@ -19,7 +19,7 @@ public class Actor {
 	protected int frameSpeed;
 	protected int actorSpeed;
 	protected int time;
-	protected int lives;
+	protected int lives = 1;
 
 	protected boolean gotShoot = false;
 

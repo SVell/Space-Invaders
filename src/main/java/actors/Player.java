@@ -2,6 +2,7 @@ package actors;
 
 //
 import actors.enemies.Ufo;
+import actors.projectiles.HpBuff;
 import actors.projectiles.InvaderShot;
 import actors.projectiles.Shot;
 import game.Key;
@@ -14,7 +15,7 @@ public class Player extends Actor {
 	private int score = 0;
 	private int lives = 3;
 	private long pressTime = System.currentTimeMillis();
-	private long fireRate = 100000000L;
+	private long fireRate = 200000000L;
 	
 	public Player(Stage stage) {
 		super(stage);
@@ -71,6 +72,7 @@ public class Player extends Actor {
 	}
 
 	public void decLives(){
+		//playSound("damage.mp3");
 		--this.lives;
 		isPlayerDead();
 	}
@@ -80,8 +82,12 @@ public class Player extends Actor {
 	}
 
 	public void collision(Actor a) {
+		//playSound("dam.mp3");
 		if(a instanceof InvaderShot || a instanceof Invader || a instanceof Ufo){
 			this.lives--;
+		}
+		if(a instanceof HpBuff){
+			this.lives++;
 		}
 		isPlayerDead();
 	}

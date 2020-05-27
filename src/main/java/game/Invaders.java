@@ -4,6 +4,7 @@ import actors.Actor;
 import actors.Invader;
 import actors.Player;
 import actors.enemies.Ufo;
+import actors.projectiles.HpBuff;
 import actors.projectiles.Shot;
 
 import javax.sound.sampled.AudioInputStream;
@@ -27,7 +28,8 @@ public class Invaders extends Stage{
 
 	private InputHandler keyPressedHandler;
 	private InputHandler keyReleasedHandler;
-	private final int SPAWN_CHANCE = 998;
+	private final int SPAWN_CHANCE = 997;
+	private final int SPAWN_HEAL_CHANCE = 999;
 
 	private long usedTime;//time taken per game step
 	private BufferStrategy strategy;	 //double buffering strategy
@@ -308,13 +310,28 @@ public class Invaders extends Stage{
 
 				Actor invader = new Invader(this);
 				int Min = 10;
-				int Max = gameFrame.getX() - invader.getWidth() - 10;
+				int Max = Stage.WIDTH - invader.getWidth() - 10;
+				//int Max = gameFrame.getX() - invader.getWidth() - 10;
 				int xPosition = Min + (int)(Math.random() * ((Max - Min) + 1));
 				invader.setX(xPosition);
 				invader.setY(-40);
 				invader.setVx(0);
 				invader.setVy(1);
 				actors.add(invader);
+			}
+			// Spawn HealKit
+			if (random >= SPAWN_HEAL_CHANCE && player.getLives() <= 3) {
+
+				Actor medKit = new HpBuff(this);
+				int Min = 10;
+				//int Max = gameFrame.getX() - medKit.getWidth() - 10;
+				int Max = Stage.WIDTH - medKit.getWidth() - 10;
+				int xPosition = Min + (int)(Math.random() * ((Max - Min) + 1));
+				medKit.setX(xPosition);
+				medKit.setY(-40);
+				medKit.setVx(0);
+				medKit.setVy(1);
+				actors.add(medKit);
 			}
 
 
