@@ -4,6 +4,7 @@ package actors;
 import actors.enemies.Ufo;
 import actors.projectiles.HpBuff;
 import actors.projectiles.InvaderShot;
+import actors.projectiles.ShootBuff;
 import actors.projectiles.Shot;
 import game.Key;
 import game.Stage;
@@ -12,14 +13,19 @@ import java.awt.event.KeyEvent;
 
 public class Player extends Actor {
 
+    public int level = 1;
+
 	private int score = 0;
 	private int lives = 3;
 	private long pressTime = System.currentTimeMillis();
 	private long fireRate = 200000000L;
+	private long fireRateBuff = 100000000L;
+	private long fireRateOffset = 200000000L;
 	
 	public Player(Stage stage) {
 		super(stage);
 
+		fireRate = fireRateOffset;
 		sprites = new String[]{"Plane.png"};
 		frame = 0;
 		frameSpeed = 35;
@@ -84,10 +90,14 @@ public class Player extends Actor {
 	public void collision(Actor a) {
 		//playSound("dam.mp3");
 		if(a instanceof InvaderShot || a instanceof Invader || a instanceof Ufo){
+		    fireRate = fireRateOffset;
 			this.lives--;
 		}
 		if(a instanceof HpBuff){
 			this.lives++;
+		}
+		if(a instanceof ShootBuff){
+			fireRate = fireRateBuff;
 		}
 		isPlayerDead();
 	}

@@ -26,9 +26,12 @@ public class Invader extends Actor {
 		switch (num){
 			case 0:
 				sprites = new String[]{"enemy1.png"};
+				canShoot = false;
+				speed = 1;
 				break;
 			case 1:
 				sprites = new String[]{"enemy2.png"};
+				lives = 2;
 				break;
 			case 2:
 				sprites = new String[]{"enemy3.png"};
@@ -86,7 +89,7 @@ public class Invader extends Actor {
 	}
 	
 	private void updateYSpeed() {
-		moveY(getVy());
+		moveY(getVy() + speed);
 		if (getY() >= stage.getHeight())
 			setMarkedForRemoval(true);
 

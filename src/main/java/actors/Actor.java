@@ -8,6 +8,8 @@ import java.awt.*;
 
 public class Actor {
 
+
+
 	private static final int POINT_VALUE = 0;
 	private int vx;
 	private int vy;
@@ -22,6 +24,7 @@ public class Actor {
 	protected int lives = 1;
 
 	protected boolean gotShoot = false;
+	protected int speed = 0;
 
 	private boolean markedForRemoval = false;
 	protected String[] sprites = null; 
