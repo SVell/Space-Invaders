@@ -1,23 +1,17 @@
 package game;
 
 import actors.Actor;
-import actors.Invader;
 import actors.Player;
-import actors.enemies.Ufo;
-import actors.projectiles.HpBuff;
-import actors.projectiles.Shot;
+import actors.enemies.Invader;
+import actors.projectiles.buffs.HpBuff;
+import actors.projectiles.bullets.Bullet;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.TargetDataLine;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Invaders extends Stage{
@@ -26,8 +20,6 @@ public class Invaders extends Stage{
 	private JFrame gameFrame;
 	private Player player;
 
-	private InputHandler keyPressedHandler;
-	private InputHandler keyReleasedHandler;
 	private final int SPAWN_CHANCE = 997;
 	private final int SPAWN_HEAL_CHANCE = 999;
 
@@ -128,13 +120,6 @@ public class Invaders extends Stage{
 
 
 		addInvaders();
-
-
-		/*keyPressedHandler = new InputHandler(this, player);
-		keyPressedHandler.action = InputHandler.Action.PRESS;
-		keyReleasedHandler = new InputHandler(this, player);
-		keyReleasedHandler.action = InputHandler.Action.RELEASE;*/
-		//addInvaders();
 	}
 
 	private void resetGame(){
@@ -238,7 +223,7 @@ public class Invaders extends Stage{
 		int numInvaders = 1;
 		while (i < actors.size()) {
 			Actor actor = actors.get(i);
-			if (actor instanceof Shot)
+			if (actor instanceof Bullet)
 				checkCollision(actor);
 
 			if (actor.isMarkedForRemoval() && actor.isGotShot()) {

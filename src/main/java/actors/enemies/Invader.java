@@ -1,27 +1,27 @@
-package actors;
+package actors.enemies;
 
-import actors.projectiles.InvaderShot;
-import actors.projectiles.Shot;
+import actors.Actor;
+import actors.Player;
+import actors.guns.Gun;
+import actors.guns.SingleShotInvaderGun;
+import actors.projectiles.bullets.Bullet;
+import actors.projectiles.bullets.enemyBullets.InvaderBullet;
 import game.Stage;
 
 import java.util.Random;
 
-public class Invader extends Actor {
+public class Invader extends Enemy {
 	
 	private static final int POINT_VALUE = 10;
-	protected static final double FIRING_FREQUENCY = 0.07;
+    private Gun gun;
 
 
 	private boolean canShoot = true;
-	private int leftWall = 0;
-	private int rightWall = 0;
-	private int step = 0;
-	private int advanceTime = 1000;
 	
 	public Invader(Stage stage) {
 		super(stage);
 		Random random = new Random();
-		int num = random.nextInt(4 - 0) + 0;
+        int num = random.nextInt(4);
 
 		switch (num){
 			case 0:
@@ -47,57 +47,27 @@ public class Invader extends Actor {
 		height = 20;
 		setX(Stage.WIDTH/2);
 		setY(Stage.HEIGHT/2);
-	}
-	
-	public void fire() {
-		if(canShoot){
-			InvaderShot shot = new InvaderShot(stage);
-			shot.setX(getX() + width/2);
-			shot.setY(getY() + shot.getHeight());
-			stage.actors.add(shot);
-		}
+        gun = new SingleShotInvaderGun(stage);
+
 	}
 	
 	public void act() {
 
 		super.act();
-		if (Math.random() < FIRING_FREQUENCY) {
-			if (Math.random() < FIRING_FREQUENCY)
-				fire();
-		}
+        if (canShoot)
+            gun.shoot(getX(), getY());
 		
 		updateXSpeed();
 		updateYSpeed();
 	}
-		
-	public void setLeftWall(int leftWall) {
-		this.leftWall = leftWall;
-	}
-	
-	public void setRightWall(int rightWall) {
-		this.rightWall = rightWall;
-	}
-	
+
 	private void updateXSpeed() {
-		/*if (time % actorSpeed == 0) {
-			moveX(getVx());
-			if (getX() < leftWall || getX() > rightWall) setVx(-getVx());
-		}*/
 	}
-	
+
 	private void updateYSpeed() {
 		moveY(getVy());
 		if (getY() >= stage.getHeight())
 			setMarkedForRemoval(true);
-
-		/*step++;
-		if (step == advanceTime) {
-			moveY(height);
-			step = 0;
-		}	
-
-		if (getY() == stage.getHeight())
-			stage.endGame();*/
 	}
 
 	public int getLives(){
@@ -117,12 +87,12 @@ public class Invader extends Actor {
 	public void collision(Actor a) {
 
 
-		if (a instanceof InvaderShot) {
+        if (a instanceof InvaderBullet) {
 			return;
 		}
 
 		playSound("explosion.wav");
-		if (a instanceof Shot || a instanceof Player) {
+        if (a instanceof Bullet || a instanceof Player) {
 			getShot();
 			decLives();
 			//setMarkedForRemoval(true);

@@ -2,7 +2,7 @@ package actors.enemies;
 
 import actors.Actor;
 import actors.Player;
-import actors.projectiles.Shot;
+import actors.projectiles.bullets.Bullet;
 import game.Stage;
 
 public class Ufo extends Enemy {
@@ -40,7 +40,7 @@ public class Ufo extends Enemy {
 
 	@Override
 	public void collision(Actor a) {
-		if (a instanceof Shot || a instanceof Player) {
+		if (a instanceof Bullet || a instanceof Player) {
 			playSound("explosion.wav");
 			setMarkedForRemoval(true);
 		}

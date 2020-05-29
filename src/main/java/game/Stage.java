@@ -11,7 +11,7 @@ public class Stage extends Canvas implements ImageObserver {
 
 	private static final long serialVersionUID = 1L;
 	public static final int WIDTH = 800;
-	public static final int HEIGHT = 1000;
+	public static final int HEIGHT = 800;
 	public static final int DESIRED_FPS = 50; 
 	
 	protected boolean gameWon = false;

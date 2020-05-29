@@ -6,7 +6,7 @@ import game.Stage;
 import java.awt.*;
 
 
-public class Actor {
+public abstract class Actor {
 
 	private static final int POINT_VALUE = 0;
 	private int vx;

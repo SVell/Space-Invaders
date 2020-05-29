@@ -1,11 +1,8 @@
-package actors.projectiles;
+package actors.projectiles.buffs;
 
 import actors.Actor;
-import actors.Invader;
 import actors.Player;
 import game.Stage;
-
-import javax.swing.*;
 
 public class HpBuff extends Actor {
 
