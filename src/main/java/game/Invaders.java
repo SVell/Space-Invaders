@@ -12,6 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Invaders extends Stage{
@@ -19,7 +20,7 @@ public class Invaders extends Stage{
 	private static final long serialVersionUID = 1L;
 	private JFrame gameFrame;
 	private Player player;
-
+	private String highScore = "";
 	private final int SPAWN_CHANCE = 997;
 	private final int SPAWN_HEAL_CHANCE = 999;
 
@@ -150,7 +151,68 @@ public class Invaders extends Stage{
 		strategy.show();
 	}
 
+	public String getHighScore(){
+
+		FileReader fileReader = null;
+		BufferedReader reader = null;
+
+		try{
+			fileReader = new FileReader("highscore.dat");
+			reader = new BufferedReader(fileReader);
+			return reader.readLine();
+		}catch (Exception e){
+			// if file wasn't found
+			return "0";
+		}
+		finally{
+			try{
+				if(reader != null)
+					reader.close();
+			}catch (Exception e){
+
+			}
+		}
+	}
+
+	public void checkHighScore(){
+
+		if(((player.getScore()) > Integer.parseInt(getHighScore()))){
+			highScore = String.valueOf(player.getScore());
+
+			File fileScore = new File("highscore.dat");
+
+			if(!fileScore.exists()){
+				try{
+					fileScore.createNewFile();
+				}catch (Exception e){
+
+				}
+			}
+
+			FileWriter writer = null;
+			BufferedWriter bufferedWriter = null;
+			try{
+				writer = new FileWriter(fileScore);
+				bufferedWriter = new BufferedWriter(writer);
+				writer.write(highScore);
+			}catch (Exception e ){
+
+			}
+			finally {
+				try {
+					if (bufferedWriter != null) bufferedWriter.close();
+				}catch (Exception e ){
+
+				}
+			}
+		}
+
+	}
+
 	private void paintGameOver() {
+
+		highScore = getHighScore();
+
 		Graphics g = strategy.getDrawGraphics();
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
@@ -159,13 +221,20 @@ public class Invaders extends Stage{
 		g.setFont(new Font("Arial",Font.BOLD,50));
 		g.setColor(Color.RED);
 		int xPos = getWidth()/2 - 155;
-		g.drawString("GAME OVER",(xPos < 0 ? 0 : xPos),getHeight()/2 -200);
+		g.drawString("GAME OVER",(xPos < 0 ? 0 : xPos),getHeight()/2 -300);
 		g.setColor(Color.yellow);
+
+		g.setColor(Color.green);
+		g.drawString("HIGHSCORE: " + highScore,getWidth()/2-200,getHeight()/2 -100);
+
+		g.setColor(Color.yellow);
+
 		g.drawString("YOUR SCORE: " + player.getScore(),(getWidth()/2- 200),getHeight()/2);
 		g.setColor(Color.red);
 		xPos += 30;
 		g.setFont(new Font("Arial",Font.BOLD,30));
 		g.drawString("ENTER: try again",(xPos < 0 ? 0 : xPos),getHeight() - 100);
+
 
 		strategy.show();
 		waitForInput();
@@ -282,6 +351,7 @@ public class Invaders extends Stage{
 				backgroundY = backgroundTile.getHeight();
 
 			if (super.gameOver) {
+				checkHighScore();
 				paintGameOver();
 				break;
 			}
