@@ -14,7 +14,7 @@ public class Invader extends Enemy {
 	
 	private static final int POINT_VALUE = 10;
     private Gun gun;
-
+    private int speed = 0;
 
 	private boolean canShoot = true;
 	
@@ -26,12 +26,15 @@ public class Invader extends Enemy {
 		switch (num){
 			case 0:
 				sprites = new String[]{"enemy1.png"};
+				speed = 1;
+				canShoot = false;
 				break;
 			case 1:
 				sprites = new String[]{"enemy2.png"};
 				break;
 			case 2:
 				sprites = new String[]{"enemy3.png"};
+				lives = 2;
 				break;
 			case 3:
 				sprites = new String[]{"enemy4.png"};
@@ -65,7 +68,7 @@ public class Invader extends Enemy {
 	}
 
 	private void updateYSpeed() {
-		moveY(getVy());
+		moveY(getVy() + speed);
 		if (getY() >= stage.getHeight())
 			setMarkedForRemoval(true);
 	}
