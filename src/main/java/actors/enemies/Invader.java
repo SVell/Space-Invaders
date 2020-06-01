@@ -95,10 +95,16 @@ public class Invader extends Enemy {
 		}
 
 		playSound("explosion.wav");
-        if (a instanceof Bullet || a instanceof Player) {
+        if (a instanceof Bullet) {
 			getShot();
 			decLives();
 			//setMarkedForRemoval(true);
+		}
+        if(a instanceof Player){
+			lives = 1;
+			getShot();
+			decLives();
+
 		}
 	}
 	
