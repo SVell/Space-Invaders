@@ -33,5 +33,9 @@ public class Stage extends Canvas implements ImageObserver {
 	public boolean imageUpdate(Image img, int infoflags, int x, int y,
 			int width, int height) {
 		return false;
-	}	
+	}
+
+
+
+
 }

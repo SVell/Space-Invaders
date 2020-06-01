@@ -6,8 +6,11 @@ import actors.enemies.Invader;
 import actors.projectiles.buffs.HpBuff;
 import actors.projectiles.bullets.Bullet;
 
+
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
@@ -23,6 +26,17 @@ public class Invaders extends Stage{
 	private String highScore = "";
 	private final int SPAWN_CHANCE = 997;
 	private final int SPAWN_HEAL_CHANCE = 999;
+	private boolean gameStarted = false;
+	private MainMenu menu = new MainMenu();
+
+	private MouseInput mouseInput = new MouseInput();
+
+	public enum STATE{
+		MAINMENU, GAME
+	};
+
+	public static STATE State = STATE.MAINMENU;
+
 
 	private long usedTime;//time taken per game step
 	private BufferStrategy strategy;	 //double buffering strategy
@@ -59,6 +73,7 @@ public class Invaders extends Stage{
 			        });
 
 
+		this.addMouseListener(mouseInput);
 		addKeyListener(new InputHandler());
 
 		//create a double buffer
@@ -125,12 +140,13 @@ public class Invaders extends Stage{
 
 	private void resetGame(){
 		initWorld();
+		paintWorld();
 		game();
 	}
 
+
 	private void paintWorld() {
 
-		//get the graphics from the buffer
 		Graphics g = strategy.getDrawGraphics();
 		//init image to background
 		g.setColor(getBackground());
@@ -139,14 +155,18 @@ public class Invaders extends Stage{
 		g.drawImage( background,0,0,Stage.WIDTH,Stage.HEIGHT,0,backgroundY,Stage.WIDTH,backgroundY+Stage.HEIGHT,this);
 
 		//paint the actors (Enemies)
-		for (int i = 0; i < actors.size(); i++) {
-			Actor actor = actors.get(i);
-			actor.paint(g);
-		}
+		if(State == STATE.GAME) {
+			for (int i = 0; i < actors.size(); i++) {
+				Actor actor = actors.get(i);
+				actor.paint(g);
+			}
 
-		player.paint(g);
-		paintScore(g);
-		paintLives(g);
+			player.paint(g);
+			paintScore(g);
+			paintLives(g);
+		} else {
+			menu.render(g);
+		}
 		//swap buffer
 		strategy.show();
 	}
@@ -341,77 +361,89 @@ public class Invaders extends Stage{
 	}
 
 	public void game() {
-		loopSound("kick.wav");
-		usedTime= 0;
-		while(isVisible()) {
-			long startTime = System.currentTimeMillis();
-
-			backgroundY--;
-			if (backgroundY < 0)
-				backgroundY = backgroundTile.getHeight();
-
-			if (super.gameOver) {
-				checkHighScore();
-				paintGameOver();
-				break;
-			}
-			else if (super.gameWon) {
-				paintGameWon();
-				break;
-			}
-
-			int random = (int)(Math.random()*1000);
-			if (random >= SPAWN_CHANCE) {
-
-				Actor invader = new Invader(this);
-				int Min = 10;
-				int Max = Stage.WIDTH - invader.getWidth() - 10;
-				//int Max = gameFrame.getX() - invader.getWidth() - 10;
-				int xPosition = Min + (int)(Math.random() * ((Max - Min) + 1));
-				invader.setX(xPosition);
-				invader.setY(-40);
-				invader.setVx(0);
-				invader.setVy(1);
-				actors.add(invader);
-			}
-			// Spawn HealKit
-			if (random >= SPAWN_HEAL_CHANCE && player.getLives() <= 3) {
-
-				Actor medKit = new HpBuff(this);
-				int Min = 10;
-				//int Max = gameFrame.getX() - medKit.getWidth() - 10;
-				int Max = Stage.WIDTH - medKit.getWidth() - 10;
-				int xPosition = Min + (int)(Math.random() * ((Max - Min) + 1));
-				medKit.setX(xPosition);
-				medKit.setY(-40);
-				medKit.setVx(0);
-				medKit.setVy(1);
-				actors.add(medKit);
-			}
 
 
 
-			updateWorld();
-			player.updateControls();
-			paintWorld();
+			loopSound("kick.wav");
+			usedTime = 0;
+			while (isVisible()) {
 
-			usedTime = System.currentTimeMillis() - startTime;
-			//calculate sleep time
-			if (usedTime == 0) usedTime = 1;
-			int timeDiff = (int) ((1000/usedTime) - DESIRED_FPS);
-			if (timeDiff > 0) {
-				try {
-					Thread.sleep(timeDiff/100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+				if (State == STATE.GAME) {
+
+					this.removeMouseListener(mouseInput);
+
+					long startTime = System.currentTimeMillis();
+
+					backgroundY--;
+					if (backgroundY < 0)
+						backgroundY = backgroundTile.getHeight();
+
+					if (super.gameOver) {
+						checkHighScore();
+						paintGameOver();
+						break;
+					} else if (super.gameWon) {
+						paintGameWon();
+						break;
+					}
+
+					int random = (int) (Math.random() * 1000);
+					if (random >= SPAWN_CHANCE) {
+
+						Actor invader = new Invader(this);
+						int Min = 10;
+						int Max = Stage.WIDTH - invader.getWidth() - 10;
+						//int Max = gameFrame.getX() - invader.getWidth() - 10;
+						int xPosition = Min + (int) (Math.random() * ((Max - Min) + 1));
+						invader.setX(xPosition);
+						invader.setY(-40);
+						invader.setVx(0);
+						invader.setVy(1);
+						actors.add(invader);
+					}
+					// Spawn HealKit
+					if (random >= SPAWN_HEAL_CHANCE && player.getLives() <= 3) {
+
+						Actor medKit = new HpBuff(this);
+						int Min = 10;
+						//int Max = gameFrame.getX() - medKit.getWidth() - 10;
+						int Max = Stage.WIDTH - medKit.getWidth() - 10;
+						int xPosition = Min + (int) (Math.random() * ((Max - Min) + 1));
+						medKit.setX(xPosition);
+						medKit.setY(-40);
+						medKit.setVx(0);
+						medKit.setVy(1);
+						actors.add(medKit);
+					}
+
+
+					updateWorld();
+					player.updateControls();
+					paintWorld();
+
+					usedTime = System.currentTimeMillis() - startTime;
+					//calculate sleep time
+					if (usedTime == 0) usedTime = 1;
+					int timeDiff = (int) ((1000 / usedTime) - DESIRED_FPS);
+					if (timeDiff > 0) {
+						try {
+							Thread.sleep(timeDiff / 100);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}else{
+					System.out.println("");
 				}
 			}
-		}
+	}
+	public void menuLoader(){
+		return;
 	}
 
 	public static void main(String[] args) {
 		Invaders inv = new Invaders();
-		inv.game();
+		inv.resetGame();
 	}
 }
 
