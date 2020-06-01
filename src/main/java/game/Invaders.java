@@ -4,6 +4,7 @@ import actors.Actor;
 import actors.Player;
 import actors.enemies.Invader;
 import actors.projectiles.buffs.HpBuff;
+import actors.projectiles.buffs.ShootBuff;
 import actors.projectiles.bullets.Bullet;
 
 import javax.swing.*;
@@ -21,8 +22,9 @@ public class Invaders extends Stage{
 	private JFrame gameFrame;
 	private Player player;
 	private String highScore = "";
-	private final int SPAWN_CHANCE = 997;
+	private final int SPAWN_CHANCE = 998;
 	private final int SPAWN_HEAL_CHANCE = 999;
+	private final int SPAWN_SHOOT_CHANCE = 1;
 
 	private long usedTime;//time taken per game step
 	private BufferStrategy strategy;	 //double buffering strategy
@@ -120,6 +122,7 @@ public class Invaders extends Stage{
 		backgroundY = backgroundTile.getHeight();
 
 
+
 		addInvaders();
 	}
 
@@ -147,6 +150,35 @@ public class Invaders extends Stage{
 		player.paint(g);
 		paintScore(g);
 		paintLives(g);
+
+		if(player.getScore() == 100){
+			player.level = 2;
+		}
+		else if(player.getScore() == 200){
+			player.level = 3;
+		}
+		else if(player.getScore() == 300){
+			player.level = 4;
+		}
+		else if(player.getScore() == 400){
+			player.level = 5;
+		}
+		else if(player.getScore() == 500){
+			player.level = 6;
+		}
+		else if(player.getScore() == 600){
+			player.level = 7;
+		}
+		else if(player.getScore() == 700){
+			player.level = 8;
+		}
+		else if(player.getScore() == 800){
+			player.level = 9;
+		}
+		else if(player.getScore() >= 900){
+			player.level = 10;
+		}
+
 		//swap buffer
 		strategy.show();
 	}
@@ -274,6 +306,11 @@ public class Invaders extends Stage{
 		g.drawString("Score: ",20,20);
 		g.setColor(Color.red);
 		g.drawString("" + player.getScore(), 100, 20);
+
+		g.setColor(Color.green);
+		g.drawString("Level: ",20,40);
+		g.setColor(Color.red);
+		g.drawString("" + player.level, 100, 40);
 	}
 
 	private void paintLives(Graphics g){
@@ -361,7 +398,7 @@ public class Invaders extends Stage{
 			}
 
 			int random = (int)(Math.random()*1000);
-			if (random >= SPAWN_CHANCE) {
+			if (random >= SPAWN_CHANCE - player.level) {
 
 				Actor invader = new Invader(this);
 				int Min = 10;
@@ -387,6 +424,20 @@ public class Invaders extends Stage{
 				medKit.setVx(0);
 				medKit.setVy(1);
 				actors.add(medKit);
+			}
+
+			if (random == SPAWN_SHOOT_CHANCE && player.gun.fireRate == 350) {
+
+				Actor shoot = new ShootBuff(this);
+				int Min = 10;
+				//int Max = gameFrame.getX() - medKit.getWidth() - 10;
+				int Max = Stage.WIDTH - shoot.getWidth() - 10;
+				int xPosition = Min + (int)(Math.random() * ((Max - Min) + 1));
+				shoot.setX(xPosition);
+				shoot.setY(-40);
+				shoot.setVx(0);
+				shoot.setVy(1);
+				actors.add(shoot);
 			}
 
 

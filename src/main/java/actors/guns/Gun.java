@@ -6,7 +6,7 @@ import game.Stage;
 public abstract class Gun extends Actor {
     private Stage stage;
     private long lastShotTime = System.currentTimeMillis();
-    private long fireRate;
+    public long fireRate;
     private String sound;
 
     public Gun(Stage stage, long fireRate, String sound) {

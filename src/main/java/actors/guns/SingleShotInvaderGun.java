@@ -5,7 +5,7 @@ import actors.projectiles.bullets.enemyBullets.InvaderBullet;
 import game.Stage;
 
 public class SingleShotInvaderGun extends Gun {
-    private static final int FIRE_RATE = 1000;
+    private static final int FIRE_RATE = 2000;
 
     public SingleShotInvaderGun(Stage stage) {
         super(stage, FIRE_RATE, null);

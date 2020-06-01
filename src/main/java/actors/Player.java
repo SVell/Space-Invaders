@@ -7,6 +7,7 @@ import actors.enemies.Ufo;
 import actors.guns.Gun;
 import actors.guns.SingleShotPlayerGun;
 import actors.projectiles.buffs.HpBuff;
+import actors.projectiles.buffs.ShootBuff;
 import actors.projectiles.bullets.enemyBullets.InvaderBullet;
 import actors.projectiles.bullets.playerBullets.BasicBullet;
 import game.Key;
@@ -18,7 +19,8 @@ public class Player extends Actor {
 	private int lives = 3;
     /*private long pressTime = System.currentTimeMillis();
     private long fireRate = 200 * 1000000L; */
-    private Gun gun;
+    public Gun gun;
+    public int level = 1;
 	
 	public Player(Stage stage) {
 		super(stage);
@@ -107,10 +109,14 @@ public class Player extends Actor {
 		//playSound("dam.mp3");
         if (a instanceof InvaderBullet || a instanceof Invader || a instanceof Ufo) {
 			this.lives--;
+            gun.setFireRate(350);
 		}
 		if(a instanceof HpBuff){
 			this.lives++;
 		}
+        if(a instanceof ShootBuff){
+            gun.setFireRate(200);
+        }
 		isPlayerDead();
 	}
 
