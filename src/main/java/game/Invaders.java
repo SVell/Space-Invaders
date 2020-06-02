@@ -395,7 +395,8 @@ public class Invaders extends Stage{
 	private void loopSound(final String name) {
 		new Thread(new Runnable() {
 			public void run() {
-				ResourceLoader.getInstance().getSound(name).loop();
+				SimpleAudioPlayer.playSong();
+				//ResourceLoader.getInstance().getSound(name).loop();
 			}
 		}).start();
 	}
